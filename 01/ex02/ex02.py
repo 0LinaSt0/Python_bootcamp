@@ -1,41 +1,38 @@
-import ex00
+
+GOLD_KEY = "gold_ingots"
+
 
 def exec_funcs(func):
-    def wrapper(*args):
-        print("SQUEAK")
-        return func(*args)
-    return wrapper
+	def wrapper(*args):
+		print("SQUEAK")
+		return func(*args)
+	return wrapper
 
+
+# return empty purse
 @exec_funcs
-def wrapp_empty(purse):
-    return ex00.empty(purse)
+def empty(purse):
+	r_purse = purse.copy()
+	r_purse.clear()
+	return r_purse
 
+
+#copy coming purse, add gold ingot to it and return this copy
 @exec_funcs
-def wrapp_add_ingot(prune):
-    return ex00.add_ingot(prune)
+def add_ingot(purse):
+	r_purse = purse.copy()
+	(r_purse.update({GOLD_KEY: r_purse[GOLD_KEY] + 1}) if GOLD_KEY in r_purse
+		else r_purse.update({GOLD_KEY: 1}))
+	return r_purse
 
+
+#copy coming purse, get gold ingot from it (if gold exists) and return this copy
 @exec_funcs
-def wrapp_get_ingot(purse):
-    return ex00.get_ingot(purse)
+def get_ingot(purse):
+	r_purse = purse.copy()
+	if GOLD_KEY in r_purse and r_purse[GOLD_KEY] != 0:
+		r_purse.update({GOLD_KEY: r_purse[GOLD_KEY] - 1})
+	return r_purse
 
 
-"""TESTS_CODE"""
-if __name__ == "__main__":
-    def test00(purse):
-        print("Add: ", end ='')
-        d0 = wrapp_add_ingot(purse)
-        print("      ", d0)
-        print("Get: ", end ='')
-        d1 = wrapp_get_ingot(d0)
-        print("      ", d1)
-        print("Add: ", end ='')
-        d2 = wrapp_add_ingot(d1)
-        print("      ", d2)
-        print("Empty: ", end ='')
-        d3 = wrapp_empty(d2)
-        print("      ", d3)
 
-    purse = {"gold_ingots": 5}
-    print("\nINITIAL_PURSE: ", purse)
-    print("\n\t~~TEST00(all_functs)~~")
-    test00(purse)
