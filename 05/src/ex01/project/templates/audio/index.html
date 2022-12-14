@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>!POST YOUR AUDIO HERE!</h1>
+<form action="/upload/" method="POST" enctype="multipart/form-data" id="audio-uploader">
+	{% csrf_token %}
+	<input type="file" name="inputFile" accept="audio/*" style="display: none;">
+	<button type="submit" style="display: none;">Upload</button>
+	<button type="button" onclick="(()=>{
+		const form = document.getElementById('audio-uploader');
+		const input = form.querySelector('input[type=\'file\']');
+		input.onchange = () => {
+			form.querySelector('button[type=\'submit\']').click()
+		}
+		input.click()
+	})()">Cnopochka</button>
+</form>
+<div class="track">
+	{% for name, link in tracks %}
+	<div class="entry">
+		<div class="name">
+			{{name}}
+		</div>
+		<audio class="audio" src="{{link}}" controls></audio>
+	</div>
+	{% endfor %}
+</div>
+{% endblock %}
