@@ -1,3 +1,5 @@
+from types import MappingProxyType
+
 
 GOLD_KEY = "gold_ingots"
 
@@ -6,7 +8,6 @@ def all_gold(*purses):
 	gold_count = 0
 	for purse in purses:
 		if GOLD_KEY in purse:
-			print(purse[GOLD_KEY])
 			gold_count += purse[GOLD_KEY]
 	return gold_count
 
@@ -29,7 +30,7 @@ def result_booty(gentls_gold):
 	p0 = {GOLD_KEY: gentls_gold[0]}
 	p1 = {GOLD_KEY: gentls_gold[1]}
 	p2 = {GOLD_KEY: gentls_gold[2]}
-	return p0, p1, p2
+	return MappingProxyType(p0), MappingProxyType(p1), MappingProxyType(p2)
 
 def split_booty(*purses):
 	booty = all_gold(*purses)
