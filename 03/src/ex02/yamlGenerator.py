@@ -10,7 +10,7 @@ class yamlGenerator:
 		members = [
 			{
 				"name": configs.project_name,
-				"host": configs.hosts_configuration,
+				"hosts": configs.hosts_configuration,
 				"serial": configs.threads_max_count,
 				"remote_user": configs.remote_user,
 				"tasks": []
