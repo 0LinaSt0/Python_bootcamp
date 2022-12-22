@@ -13,6 +13,7 @@ Intall needing utils:
 pip install beautifulsoup4
 pip install redis
 pip install argparse
+pip insall ansible
 ```
 
 EXECUTE EX00:
@@ -35,6 +36,16 @@ EXECUTE EX01:
 	2. Start producer:
 		```shell
 		python3 producer.py
+		```
+
+EXECUTE EX02:
+	1. Generate config "deploy.yml":
+		```shell
+		python3 gen_ansible.py
+		```
+	2. Run playbook on remote server [privat-key][]
+		```shell
+		ansible-playbook --private-key ~/.ssh/unixway-keypair -i srcs/inventory ../../materials/deploy.yml
 		```
 
 
