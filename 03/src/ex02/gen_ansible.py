@@ -4,7 +4,8 @@ from parameters import *
 
 
 DEPLOY_PATH = "../../materials/deploy.yml"
-SRCS_PATH = "srcs/"
+#please, change 'from directory' it for correct work
+SRCS_PATH = "/Users/msalena/Desktop/Python_bootcamp/03/src/ex02/srcs/"
 
 
 def addInstallPackagesModes(gen_yaml, install_packages):

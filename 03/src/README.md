@@ -10,10 +10,10 @@ pip install -r requirements.txt
 
 Intall needing utils:
 ```shell
-pip install beautifulsoup4
-pip install redis
-pip install argparse
-pip install ansible
+pip3 install beautifulsoup4
+pip3 install redis
+pip3 install argparse
+pip3 install ansible
 ```
 
 EXECUTE EX00:
@@ -29,11 +29,15 @@ EXECUTE EX00:
 
 
 EXECUTE EX01:
-	1. Start consumer:
+	1. Start redis-server:
+		```shell
+		redis-server
+		```
+	2. Start consumer:
 		```shell
 		python3 consumer.py -e 7134456234,3476371234
 		```
-	2. Start producer:
+	3. Start producer:
 		```shell
 		python3 producer.py
 		```
@@ -46,7 +50,8 @@ EXECUTE EX02:
 		```
 	2. Run playbook on remote server [privat-key][]
 		```shell
-		ansible-playbook -i localhost, --connection=local ../../materials/deploy.yml
+		ansible-playbook -i srcs/inventory.ini ../../materials/deploy.yml
 		```
+		It's possible to add '-vvv' flag for printing more information
 
 

@@ -14,11 +14,17 @@ def takeData():
 
 
 def generateCommands(accounts):
-	start_server_cmd = f"cd {SRCS_PARH_REMOTE} ; python3 -m http.server"
+	bs4_install_cmd = f"pip3 install beautifulsoup4"
+	redis_install_cmd = f"pip3 install redis"
+	argparse_install_cmd = f"pip3 install argparse"
+	start_server_cmd = f"{SRCS_PARH_REMOTE}/runserver.sh"
 	generate_html_cmd = f"python3 {SRCS_PARH_REMOTE}/exploit.py"
-	start_consumer_cmd = f"python3 {SRCS_PARH_REMOTE}/consumer.py -e {accounts[0]},{accounts[1]}"
+	start_consumer_cmd = f"{SRCS_PARH_REMOTE}/runconsumer.sh"
 	cmds = {
-		"start service": start_server_cmd,
+		"install beautifulsoup4": bs4_install_cmd,
+		"install redis": redis_install_cmd,
+		"install argparser": argparse_install_cmd,
+		"start server": start_server_cmd,
 		"generate new html page" : generate_html_cmd,
 		"start consumer with agruments" : start_consumer_cmd
 	}
@@ -29,7 +35,11 @@ def createConfigs():
 	data = takeData()
 	cmds = generateCommands(data['bad_guys'])
 	data['server']['exploit_files'].append("evilcorp.html")
-	confs = configs("Deploy", "all", 5, "msalena",
+	data['server']['exploit_files'].append("runserver.sh")
+	data['server']['exploit_files'].append("runconsumer.sh")
+	data['server']['install_packages'].append("python3-pip")
+	data['server']['install_packages'].append("redis-server")
+	confs = configs("Deploy", "all", "true", 5, "msalena",
 					data['server']['install_packages'],
 					data['server']['exploit_files'], cmds)
 	return confs

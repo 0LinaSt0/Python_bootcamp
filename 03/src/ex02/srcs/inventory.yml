@@ -1,3 +1,0 @@
-- hosts: msalena@127.0.0.1
-  vars:
-    http_port: 2220

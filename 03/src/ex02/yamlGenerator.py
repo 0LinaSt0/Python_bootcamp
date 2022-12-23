@@ -11,6 +11,7 @@ class yamlGenerator:
 			{
 				"name": configs.project_name,
 				"hosts": configs.hosts_configuration,
+				"become": configs.sudo_rules,
 				"serial": configs.threads_max_count,
 				"remote_user": configs.remote_user,
 				"tasks": []

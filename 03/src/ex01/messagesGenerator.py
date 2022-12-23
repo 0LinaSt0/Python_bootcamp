@@ -22,7 +22,7 @@ class messagesGenerator:
 	def testsExample(self):
 		message1 = {"metadata": {"from": 1111111111, "to": 2222222222}, "amount": 1000}
 		message2 = {"metadata": {"from": 3333333333, "to": 4444444444}, "amount": -3000}
-		message3 = {"metadata": {"from": 2222222222, "to": 5555555555}, "amount": 5000}
+		message3 = {"metadata": {"from": 5555555555, "to": 2222222222}, "amount": 5000}
 		# convert messages to JSON format
 		ret = [dumps(message1, indent=4), dumps(message2, indent=4), dumps(message3, indent=4)]
 		return ret
@@ -39,5 +39,4 @@ class messagesGenerator:
 		self.informationGenerator()
 		message = {"metadata": {"from": self.an_from, "to": self.an_to}, "amount": self.amount}
 		jsonConvert = dumps(message, indent=4)
-		#print(self.an_from, self.an_to, self.amount)
 		return jsonConvert

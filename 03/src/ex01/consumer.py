@@ -6,9 +6,16 @@ GREATE TUTORIALS:
 
 """
 Start consumer:
-	python3 consumer.py -e 7134456234,3476371234
+	python3 consumer.py -e 2222222222,4444444444
+
+Should return:
+	{"metadata": {"from": 2222222222,"to": 1111111111},"amount": 10000}
+	{"metadata": {"from": 3333333333,"to": 4444444444},"amount": -3000}
+	{"metadata": {"from": 2222222222,"to": 5555555555},"amount": 5000}
+
 """
 
+import logging
 from redis import Redis
 from time import sleep
 from json import loads
@@ -26,11 +33,13 @@ def counsumer(inp):
 	# Subscribe two channel1
 	pub.subscribe("channel1")
 
+	logging.basicConfig(level=logging.INFO)
+
 	# Waiting signal loop
 	while True:
 		message = pub.get_message()
 		if message and message.get("type") == "message":
-			print(messagerUpdater.RobinHood(loads(message.get("data")), inp))
+			logging.info(messagerUpdater.RobinHood(loads(message.get("data")), inp))
 			#print(loads(message.get("data")).get("metadata"))
 		sleep(0.01)
 
