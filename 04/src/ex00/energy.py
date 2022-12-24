@@ -2,11 +2,11 @@ from itertools import chain
 
 
 def plug_connect(n_cable, n_socket, n_plug):
-	return str("plug " + n_cable + " into " + n_socket + " using " + n_plug)
+	return f"plug {n_cable} into {n_socket} using {n_plug}"
 
 
 def welding_connect(n_cable, n_socket):
-	return str("weld " + n_cable + " to " + n_socket + " without plug")
+	return f"weld {n_cable} to {n_socket} without plug"
 
 
 def tools_generator(tool, subname):

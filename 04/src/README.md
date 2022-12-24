@@ -1,9 +1,15 @@
-Activate env:
+#### Create env:
 ```shell
-. venv/bin/activate
+virtualenv .venv
 ```
 
-Install pytest:
+#### Activate env:
 ```shell
-python -m pip install pytest
+. .venv/bin/activate
 ```
+
+#### Installing:
+```shell
+pip3 install -r requirements.txt
+```
+

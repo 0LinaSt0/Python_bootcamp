@@ -10,23 +10,25 @@ from time import sleep
 
 def turrets_generator():
 	while True:
+		#type function generates dynamic class
 		yield type("Turret", (object,), dict(take_atributs() | take_methods()))()
 
 
 if __name__ == "__main__":
-	for turret, _ in zip(turrets_generator(), range(10)):
-		l_personalities = [
+	for turret, i in zip(turrets_generator(), range(1, 11)):
+		print("TURRET_{}".format(i))
+		personalities = [
 			turret.neuroticism,
 			turret.openness,
 			turret.conscientiousness,
 			turret.extraversion,
 			turret.agreeableness
 			]
-		print("personalities: ", l_personalities)
-		print("sum of personalities: ", sum(l_personalities))
+		print("personalities: ", personalities)
+		print("sum of personalities: ", sum(personalities))
 		turret.shoot()
 		turret.search()
 		turret.talk()
 		print("\n")
-		sleep(1)
+		sleep(2)
 

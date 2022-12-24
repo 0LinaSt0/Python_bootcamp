@@ -27,7 +27,6 @@ def talk(self):
 
 
 def take_atributs() -> Dict[str, int]:
-	print("take_atributs")
 	result = {}
 	reminder = ATRIBUTS_SUM
 	for elem in LIST_ATRIBUTS[:-1]:
@@ -39,7 +38,6 @@ def take_atributs() -> Dict[str, int]:
 
 
 def take_methods():
-	print("take_methods")
 	return {
 		"shoot": shoot, 
 		"search": search, 
