@@ -25,13 +25,10 @@ class SendSpaceshipService(
 ):
 	# as Spaceships service in proto
 	def SendSpaceship(self, request, context):
-		if request.coordinates == "17 45 40.0409":
-			print("AAAAAA")
 		sent_spaceships = [
 			ship_generator()
 			for _ in random(1, 10)
 		]
-		print("AAAAAA")
 		return SpaceshipResponse(respons_ship=sent_spaceships)
 
 
@@ -43,7 +40,7 @@ def server():
 	spaceships_pb2_grpc.add_SpaceshipsServicer_to_server(
 		SendSpaceshipService(), serv
 	)
-	# start derver on 8888 port
+	# start server on 8888 port
 	serv.add_insecure_port("[::]:8888")
 	serv.start()
 	# wait until stopped [^ctrl + C]
