@@ -35,9 +35,9 @@ message Spaceship {
 }
 
 message SpaceshipResponse {
-	repeated Spaceship respons_ship = 1;
+	repeated Spaceship respons_ships = 1;
 }
 
 service Spaceships {
-	rpc SendSpaceship (SpaceshipRequest) returns (SpaceshipResponse);
+	rpc SendSpaceship(SpaceshipRequest) returns (SpaceshipResponse);
 }

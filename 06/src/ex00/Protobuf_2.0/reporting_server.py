@@ -1,8 +1,8 @@
 """
 {
-	"alignment": "Ally",
+	"alignment": "ally",
 	"name": "Normandy",
-	"class": "Corvette",
+	"class": "CORVETTE",
 	"length": 216.3,
 	"crew_size": 8,
 	"armed": true,
@@ -23,13 +23,11 @@ from spaceships_generator import ship_generator
 class SendSpaceshipService(
 	spaceships_pb2_grpc.SpaceshipsServicer
 ):
-	# as Spaceships service in proto
+	# as Spaceships service in proto (redefinition)
 	def SendSpaceship(self, request, context):
-		sent_spaceships = [
-			ship_generator()
-			for _ in random(1, 10)
-		]
-		return SpaceshipResponse(respons_ship=sent_spaceships)
+		reply = SpaceshipResponse()
+		(reply.respons_ships.extend(ship_generator()) for _ in random(1, 10))
+		return reply
 
 
 
@@ -41,7 +39,7 @@ def server():
 		SendSpaceshipService(), serv
 	)
 	# start server on 8888 port
-	serv.add_insecure_port("[::]:8888")
+	serv.add_insecure_port("localhost:8888")
 	serv.start()
 	# wait until stopped [^ctrl + C]
 	serv.wait_for_termination()

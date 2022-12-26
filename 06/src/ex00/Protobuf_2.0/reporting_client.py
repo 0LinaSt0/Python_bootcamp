@@ -6,14 +6,15 @@ from spaceships_pb2_grpc import SpaceshipsStub
 
 def ft_request(input_coordinates):
 	# create connection channel
-	channel = grpc.insecure_channel("localhost:8888")
-	# set up connection on opening channel
-	client = SpaceshipsStub(channel)
-	# generate the request
-	print(input_coordinates)
-	request = SpaceshipRequest(coordinates=input_coordinates)
-	# send request to remote server
-	client.SendSpaceship(request)
+	with grpc.insecure_channel("localhost:8888") as channel:
+		# set up connection on opening channel
+		client = SpaceshipsStub(channel)
+		print(input_coordinates)
+		# generate the request
+		request = SpaceshipRequest(coordinates=input_coordinates)
+		# send request to remote server
+		reply = client.SendSpaceship(request)
+		print(reply)
 
 if "__main__" == __name__:
 	input_coordinates = sys.argv[1]

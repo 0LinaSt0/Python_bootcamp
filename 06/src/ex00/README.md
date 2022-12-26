@@ -12,6 +12,6 @@
 4. Install requiements:
 	(venv) $ pip3 install -r requirements.txt
 
-5. Generate protobufs:
-	$ python -m grpc_tools.protoc -I ../protobufs --python_out=. --grpc_python_out=. ../protobufs/spaceships.proto
+5. Generate protobufs (from folder Protobuf_2.0/):
+	$ python -m grpc_tools.protoc -I ../src_proto --python_out=. --pyi_out=. --grpc_python_out=. ../src_proto/spaceships.proto
 
