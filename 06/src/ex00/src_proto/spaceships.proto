@@ -1,17 +1,17 @@
 syntax = "proto3";
 
 enum Alignment {
-	ALLY = 0;
-	ENEMY = 1;
+	Ally = 0;
+	Enemy = 1;
 }
 
 enum Class {
-	CORVETTE = 0;
-	FRIGATE = 1;
-	CRUISER = 2;
-	DESTROYER = 3;
-	CARRIER = 4;
-	DREADNOUGHT = 5;
+	Corvette = 0;
+	Frigate = 1;
+	Cruiser = 2;
+	Destroye = 3;
+	Carrier = 4;
+	Dreadno = 5;
 }
 
 message Officer {
@@ -25,19 +25,19 @@ message SpaceshipRequest {
 }
 
 message Spaceship {
-	Alignment alignment = 1;
-	string name = 2;
-	Class ship_class = 4;
-	float length = 3;
-	int32 crew_size = 5;
-	bool armed = 6;
+	optional Alignment alignment = 1;
+	optional string name = 2;
+	optional Class ship_class = 4;
+	optional float length = 3;
+	optional int32 crew_size = 5;
+	optional bool armed = 6;
 	repeated Officer officers = 7;
 }
 
 message SpaceshipResponse {
-	repeated Spaceship respons_ships = 1;
+	Spaceship respons_ships = 1;
 }
 
 service Spaceships {
-	rpc SendSpaceship(SpaceshipRequest) returns (SpaceshipResponse);
+	rpc SendSpaceship(SpaceshipRequest) returns (stream SpaceshipResponse);
 }

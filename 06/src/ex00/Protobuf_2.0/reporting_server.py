@@ -2,7 +2,7 @@
 {
 	"alignment": "ally",
 	"name": "Normandy",
-	"class": "CORVETTE",
+	"class": "Corvette",
 	"length": 216.3,
 	"crew_size": 8,
 	"armed": true,
@@ -17,7 +17,7 @@ import grpc
 import spaceships_pb2_grpc
 from spaceships_pb2 import SpaceshipRequest, SpaceshipResponse
 
-from spaceships_generator import ship_generator
+from spaceships_factory import ship_factory
 
 
 class SendSpaceshipService(
@@ -25,9 +25,11 @@ class SendSpaceshipService(
 ):
 	# as Spaceships service in proto (redefinition)
 	def SendSpaceship(self, request, context):
-		reply = SpaceshipResponse()
-		(reply.respons_ships.extend(ship_generator()) for _ in random(1, 10))
-		return reply
+		print(request)
+		for _ in range(10):
+			reply = SpaceshipResponse()
+			reply.respons_ships.CopyFrom(ship_factory())
+			yield reply
 
 
 

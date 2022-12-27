@@ -4,15 +4,15 @@ from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from typing import ClassVar as _ClassVar, Iterable as _Iterable, Mapping as _Mapping, Optional as _Optional, Union as _Union
 
-ALLY: Alignment
-CARRIER: Class
-CORVETTE: Class
-CRUISER: Class
+Ally: Alignment
+Carrier: Class
+Corvette: Class
+Cruiser: Class
 DESCRIPTOR: _descriptor.FileDescriptor
-DESTROYER: Class
-DREADNOUGHT: Class
-ENEMY: Alignment
-FRIGATE: Class
+Destroye: Class
+Dreadno: Class
+Enemy: Alignment
+Frigate: Class
 
 class Officer(_message.Message):
     __slots__ = ["first_name", "last_name", "rank"]
@@ -51,8 +51,8 @@ class SpaceshipRequest(_message.Message):
 class SpaceshipResponse(_message.Message):
     __slots__ = ["respons_ships"]
     RESPONS_SHIPS_FIELD_NUMBER: _ClassVar[int]
-    respons_ships: _containers.RepeatedCompositeFieldContainer[Spaceship]
-    def __init__(self, respons_ships: _Optional[_Iterable[_Union[Spaceship, _Mapping]]] = ...) -> None: ...
+    respons_ships: Spaceship
+    def __init__(self, respons_ships: _Optional[_Union[Spaceship, _Mapping]] = ...) -> None: ...
 
 class Alignment(int, metaclass=_enum_type_wrapper.EnumTypeWrapper):
     __slots__ = []

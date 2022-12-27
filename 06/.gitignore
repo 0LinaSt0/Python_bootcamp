@@ -49,3 +49,6 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# my trash
+reply_data.json

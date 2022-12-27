@@ -14,7 +14,7 @@ class SpaceshipsStub(object):
         Args:
             channel: A grpc.Channel.
         """
-        self.SendSpaceship = channel.unary_unary(
+        self.SendSpaceship = channel.unary_stream(
                 '/Spaceships/SendSpaceship',
                 request_serializer=spaceships__pb2.SpaceshipRequest.SerializeToString,
                 response_deserializer=spaceships__pb2.SpaceshipResponse.FromString,
@@ -33,7 +33,7 @@ class SpaceshipsServicer(object):
 
 def add_SpaceshipsServicer_to_server(servicer, server):
     rpc_method_handlers = {
-            'SendSpaceship': grpc.unary_unary_rpc_method_handler(
+            'SendSpaceship': grpc.unary_stream_rpc_method_handler(
                     servicer.SendSpaceship,
                     request_deserializer=spaceships__pb2.SpaceshipRequest.FromString,
                     response_serializer=spaceships__pb2.SpaceshipResponse.SerializeToString,
@@ -59,7 +59,7 @@ class Spaceships(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/Spaceships/SendSpaceship',
+        return grpc.experimental.unary_stream(request, target, '/Spaceships/SendSpaceship',
             spaceships__pb2.SpaceshipRequest.SerializeToString,
             spaceships__pb2.SpaceshipResponse.FromString,
             options, channel_credentials,
