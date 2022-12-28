@@ -1,7 +1,7 @@
 #!/user/bin/python3
 
 # ~$ ./reporting_client_v2.py 17 45 40.0409 −29 00 28.118
-import sys
+import sys, argparse
 from json import dumps, loads
 from ValidateSpaceships import ValidateSpaceships
 from pydantic import ValidationError
@@ -24,6 +24,9 @@ def reply_valid_handler(message: dict):
 		return {"ERROR": err.json()} | json_load
 
 if __name__ == "__main__":
-	input_coordinates = sys.argv[1]
-
-	to_json_file(ft_request(input_coordinates, reply_valid_handler))
+	#input_coordinates = sys.argv[1]
+	argp = argparse.ArgumentParser(description="Client for space scaning")
+	argp.add_argument("coordinate", type=float, nargs=6, metavar="*",
+			  	help="use Equatorial coordinate system")
+	args = argp.parse_args()
+	to_json_file(ft_request(args.coordinates, reply_valid_handler))
