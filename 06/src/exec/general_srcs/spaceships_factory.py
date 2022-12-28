@@ -1,4 +1,5 @@
-import random
+import random, sys
+sys.path.insert(1, "proto_srcs/")
 from spaceships_pb2 import (
 	Alignment,
 	Class,

@@ -11,13 +11,13 @@
 """
 
 from concurrent import futures # for creating tread pool
-import random
 
-import grpc
-import spaceships_pb2_grpc
-from spaceships_pb2 import SpaceshipRequest, SpaceshipResponse
-
+import grpc, sys
 from spaceships_factory import ship_factory
+sys.path.insert(1, "proto_srcs/")
+import spaceships_pb2_grpc
+from spaceships_pb2 import SpaceshipResponse
+
 
 
 class SendSpaceshipService(

@@ -1,4 +1,4 @@
-## Preparing steps
+## PREPARING STEPS
 #### 1. Install venv:
 	$ python -m pip install virtualenv
 	$ virtualenv venv
@@ -13,10 +13,11 @@
 ## EXERCISES
 
 #### EX00 information:
-Command for generating protobuf classes (from folder Protobuf_2.0/):
+Command for generating protobuf classes (from folder "general_srcs/proto_srcs"):
 ```shell
-$ python -m grpc_tools.protoc -I ../src_proto --python_out=. --pyi_out=. --grpc_python_out=. ../src_proto/spaceships.proto
+$ python -m grpc_tools.protoc -I . --python_out=. --pyi_out=. --grpc_python_out=. ./spaceships.proto
 ```
+
 
 ###### 1. Start server in folder "Protobuf_2.0/":
 	```shell
@@ -27,4 +28,9 @@ $ python -m grpc_tools.protoc -I ../src_proto --python_out=. --pyi_out=. --grpc_
 	python reporting_client.py <COORDINATES>
 	```
 
+#### EX01 information:
+
+Usefull web-pages:
+* Schema: [Field customization](https://docs.pydantic.dev/usage/schema/)
+* Validators: [Full description](https://docs.pydantic.dev/usage/validators/)
 
