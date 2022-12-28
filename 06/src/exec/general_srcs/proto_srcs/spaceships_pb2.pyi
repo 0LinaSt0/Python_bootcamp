@@ -9,8 +9,8 @@ Carrier: Class
 Corvette: Class
 Cruiser: Class
 DESCRIPTOR: _descriptor.FileDescriptor
-Destroye: Class
-Dreadno: Class
+Destroyer: Class
+Dreadnought: Class
 Enemy: Alignment
 Frigate: Class
 

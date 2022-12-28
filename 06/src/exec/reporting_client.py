@@ -1,13 +1,8 @@
 # ~$ ./reporting_client.py 17 45 40.0409 −29 00 28.118
 import sys
-from json import dumps, loads
+from json import loads, dumps
 sys.path.insert(1, "./general_srcs/")
-from utils import ft_request
-
-
-def to_json_file(list_obj):
-	with open("reply_data.json", 'w') as outfile:
-		outfile.write(dumps(list_obj, indent=4))
+from utils import ft_request, to_json_file
 
 
 def json_reply(dict_obj):

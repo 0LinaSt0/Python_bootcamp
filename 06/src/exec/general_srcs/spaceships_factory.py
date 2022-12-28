@@ -55,8 +55,8 @@ def ship_factory():
 	random_spaceship.name = (random.choice(SHIPS_NAMES + ["Unknown"])
 								if is_enemy else random.choice(SHIPS_NAMES))
 	random_spaceship.ship_class = random.choice(Class.keys())
-	random_spaceship.length = round(random.uniform(150.50, 500.50), 1)
-	random_spaceship.crew_size = random.randrange(2, 15)
+	random_spaceship.length = round(random.uniform(1000.50, 20000.50), 1)
+	random_spaceship.crew_size = random.randrange(6, 500)
 	random_spaceship.armed = random.choice([True, False])
 	for _ in range(officers_count):
 		random_spaceship.officers.append(officer_factory())

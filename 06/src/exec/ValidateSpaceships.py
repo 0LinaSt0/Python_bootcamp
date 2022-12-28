@@ -79,15 +79,15 @@ class Class(str, Enum):
 class ValidateSpaceships(BaseModel):
 	alignment: str
 	name: str
-	length: float = Field(..., ge=80.0, le=20000.0)
+	length: float
 	shipClass: str
-	crewSize: int = Field(..., ge=4, le=500)
+	crewSize: int
 	armed: bool
 	officers: list
 
-	@validator("name")
+	@validator("shipClass")
 	def check_name(cls, v):
-		if v not in Class._member_names_:
+		if v not in Class._value2member_map_:
 			raise ValueError('Invalid ship name')
 		return v
 
@@ -105,14 +105,16 @@ class ValidateSpaceships(BaseModel):
 				raise ValueError('Invalid fields')
 			"""
 			if (expected_parameters["length"][0] > values["length"]
-				and expected_parameters["length"][1] < values["length"]):
+				or expected_parameters["length"][1] < values["length"]):
 				raise ValueError("Invalid length")
 			if (expected_parameters["crewSize"][0] > values["crewSize"]
-				and expected_parameters["crewSize"][1] < values["crewSize"]):
+				or expected_parameters["crewSize"][1] < values["crewSize"]):
 				raise ValueError("Invalid crew")
-			if expected_parameters["armed"] != values["armed"]:
+			if (expected_parameters["armed"] == False
+				and expected_parameters["armed"] != values["armed"]):
 				raise ValueError("Invalid armed status")
-			if expected_parameters["alignment"] != values["alignment"]:
+			if (expected_parameters["alignment"] == "Ally"
+				and expected_parameters["alignment"] != values["alignment"]):
 				raise ValueError("Invalid hostile status")
 		return values
 

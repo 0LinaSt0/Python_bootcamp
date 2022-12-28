@@ -9,9 +9,9 @@ enum Class {
 	Corvette = 0;
 	Frigate = 1;
 	Cruiser = 2;
-	Destroye = 3;
+	Destroyer = 3;
 	Carrier = 4;
-	Dreadno = 5;
+	Dreadnought = 5;
 }
 
 message Officer {

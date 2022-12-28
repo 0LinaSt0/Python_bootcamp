@@ -1,10 +1,16 @@
 
 import grpc, sys
 from time import sleep
+from json import dumps
 from google.protobuf.json_format import MessageToDict
 sys.path.insert(1, "./general_srcs/proto_srcs/")
 from spaceships_pb2 import SpaceshipRequest
 from spaceships_pb2_grpc import SpaceshipsStub
+
+
+def to_json_file(list_obj):
+	with open("reply_data.json", 'w') as outfile:
+		outfile.write(dumps(list_obj, indent=4))
 
 
 def ft_request(input_coordinates, ft_handler):
@@ -20,8 +26,9 @@ def ft_request(input_coordinates, ft_handler):
 		# receive ships from server
 		for reply in replies:
 			dict_obj = MessageToDict(reply)
+			#try:
 			appending_message = ft_handler(dict_obj)
-			if len(appending_message) > 0:
-				list_reply.append(appending_message)
-			sleep(1)
+			list_reply.append(appending_message)
+			#except ValueError as err:
+			#sleep(1)
 		return list_reply
