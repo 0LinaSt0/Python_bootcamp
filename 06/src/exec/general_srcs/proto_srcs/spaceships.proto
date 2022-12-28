@@ -27,7 +27,7 @@ message SpaceshipRequest {
 message Spaceship {
 	optional Alignment alignment = 1;
 	optional string name = 2;
-	optional Class ship_class = 4;
+	optional Class classs = 4;
 	optional float length = 3;
 	optional int32 crew_size = 5;
 	optional bool armed = 6;

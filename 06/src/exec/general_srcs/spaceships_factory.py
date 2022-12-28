@@ -45,7 +45,7 @@ def officer_factory():
 	return officer
 
 
-def ship_factory():
+def ship_factory(): 
 	alignment_status = random.choice(Alignment.keys())
 	is_enemy = (alignment_status == Alignment.Enemy)
 	officers_count = random.randrange(0, 11) if is_enemy else random.randrange(1, 11)
@@ -54,7 +54,7 @@ def ship_factory():
 	random_spaceship.alignment = alignment_status
 	random_spaceship.name = (random.choice(SHIPS_NAMES + ["Unknown"])
 								if is_enemy else random.choice(SHIPS_NAMES))
-	random_spaceship.ship_class = random.choice(Class.keys())
+	random_spaceship.classs = random.choice(Class.keys())
 	random_spaceship.length = round(random.uniform(1000.50, 20000.50), 1)
 	random_spaceship.crew_size = random.randrange(6, 500)
 	random_spaceship.armed = random.choice([True, False])
@@ -63,20 +63,5 @@ def ship_factory():
 	return random_spaceship
 
 
-
-
-# For checking
-from json import loads
-from google.protobuf.json_format import MessageToJson
-
-
 if __name__ == "__main__":
-	json_obj = loads('{"key": "value", "kkk": "vvv"}')
-	print(type(json_obj))
-	print(json_obj)
-	"""
-	json_obj = MessageToJson(ship_factory())
-	print(json_obj)
-	with open('json_data.json', 'w') as outfile:
-		outfile.write(json_obj)
-	"""
+	ship_factory()

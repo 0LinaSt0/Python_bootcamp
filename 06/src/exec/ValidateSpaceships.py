@@ -16,50 +16,49 @@ from enum import Enum
 from pydantic import (
 	BaseModel,
 	root_validator,
-	validator,
-	Field
+	validator
 )
 
 
 VALID_DICT = {
 	"Corvette": {
 		"length": [80.0, 250.0],
-		"crewSize": [4, 10],
+		"crew_size": [4, 10],
 		"armed": True,
 		"alignment": "Enemy"
 	},
 
 	"Frigate": {
 		"length": [300.0, 600.0],
-		"crewSize": [10, 15],
+		"crew_size": [10, 15],
 		"armed": True,
 		"alignment": "Ally"
 	},
 
 	"Cruiser": {
 		"length": [500.0, 1000.0],
-		"crewSize": [15, 30],
+		"crew_size": [15, 30],
 		"armed": True,
 		"alignment": "Enemy"
 	},
 
 	"Destroyer": {
 		"length": [800.0, 2000.0],
-		"crewSize": [50, 80],
+		"crew_size": [50, 80],
 		"armed": True,
 		"alignment": "Ally"
 	},
 
 	"Carrier": {
 		"length": [1000.0, 4000.0],
-		"crewSize": [120, 250],
+		"crew_size": [120, 250],
 		"armed": False,
 		"alignment": "Enemy"
 	},
 
 	"Dreadnought": {
 		"length": [5000.0, 20000.0],
-		"crewSize": [300, 500],
+		"crew_size": [300, 500],
 		"armed": True,
 		"alignment": "Enemy"
 	}
@@ -80,12 +79,12 @@ class ValidateSpaceships(BaseModel):
 	alignment: str
 	name: str
 	length: float
-	shipClass: str
-	crewSize: int
+	classs: str
+	crew_size: int
 	armed: bool
 	officers: list
 
-	@validator("shipClass")
+	@validator("classs")
 	def check_name(cls, v):
 		if v not in Class._value2member_map_:
 			raise ValueError('Invalid ship name')
@@ -93,22 +92,13 @@ class ValidateSpaceships(BaseModel):
 
 	@root_validator
 	def check_valid_parameters(cls, values):
-		if values["shipClass"] != "Unknown":
-			expected_parameters = VALID_DICT[values["shipClass"]]
-			"""
-			if ((expected_parameters["length"][0] <= values["length"]
-				and expected_parameters["length"][1] >= values["length"]
-				and expected_parameters["crewSize"][0] <= values["crewSize"]
-				and expected_parameters["crewSize"][1] >= values["crewSize"]
-				and expected_parameters["armed"] == values["armed"]
-				and expected_parameters["alignment"] == values["alignment"]) is False):
-				raise ValueError('Invalid fields')
-			"""
+		if values["classs"] != "Unknown":
+			expected_parameters = VALID_DICT[values["classs"]]
 			if (expected_parameters["length"][0] > values["length"]
 				or expected_parameters["length"][1] < values["length"]):
 				raise ValueError("Invalid length")
-			if (expected_parameters["crewSize"][0] > values["crewSize"]
-				or expected_parameters["crewSize"][1] < values["crewSize"]):
+			if (expected_parameters["crew_size"][0] > values["crew_size"]
+				or expected_parameters["crew_size"][1] < values["crew_size"]):
 				raise ValueError("Invalid crew")
 			if (expected_parameters["armed"] == False
 				and expected_parameters["armed"] != values["armed"]):
@@ -117,4 +107,3 @@ class ValidateSpaceships(BaseModel):
 				and expected_parameters["alignment"] != values["alignment"]):
 				raise ValueError("Invalid hostile status")
 		return values
-

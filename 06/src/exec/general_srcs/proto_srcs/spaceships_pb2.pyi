@@ -25,22 +25,22 @@ class Officer(_message.Message):
     def __init__(self, first_name: _Optional[str] = ..., last_name: _Optional[str] = ..., rank: _Optional[str] = ...) -> None: ...
 
 class Spaceship(_message.Message):
-    __slots__ = ["alignment", "armed", "crew_size", "length", "name", "officers", "ship_class"]
+    __slots__ = ["alignment", "armed", "classs", "crew_size", "length", "name", "officers"]
     ALIGNMENT_FIELD_NUMBER: _ClassVar[int]
     ARMED_FIELD_NUMBER: _ClassVar[int]
+    CLASSS_FIELD_NUMBER: _ClassVar[int]
     CREW_SIZE_FIELD_NUMBER: _ClassVar[int]
     LENGTH_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     OFFICERS_FIELD_NUMBER: _ClassVar[int]
-    SHIP_CLASS_FIELD_NUMBER: _ClassVar[int]
     alignment: Alignment
     armed: bool
+    classs: Class
     crew_size: int
     length: float
     name: str
     officers: _containers.RepeatedCompositeFieldContainer[Officer]
-    ship_class: Class
-    def __init__(self, alignment: _Optional[_Union[Alignment, str]] = ..., name: _Optional[str] = ..., ship_class: _Optional[_Union[Class, str]] = ..., length: _Optional[float] = ..., crew_size: _Optional[int] = ..., armed: bool = ..., officers: _Optional[_Iterable[_Union[Officer, _Mapping]]] = ...) -> None: ...
+    def __init__(self, alignment: _Optional[_Union[Alignment, str]] = ..., name: _Optional[str] = ..., classs: _Optional[_Union[Class, str]] = ..., length: _Optional[float] = ..., crew_size: _Optional[int] = ..., armed: bool = ..., officers: _Optional[_Iterable[_Union[Officer, _Mapping]]] = ...) -> None: ...
 
 class SpaceshipRequest(_message.Message):
     __slots__ = ["coordinates"]
