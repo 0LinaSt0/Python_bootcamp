@@ -26,9 +26,6 @@ def ft_request(input_coordinates, ft_handler):
 		# receive ships from server
 		for reply in replies:
 			dict_obj = MessageToDict(reply)
-			#try:
 			appending_message = ft_handler(dict_obj)
 			list_reply.append(appending_message)
-			#except ValueError as err:
-			#sleep(1)
 		return list_reply

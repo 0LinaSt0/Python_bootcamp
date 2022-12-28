@@ -18,7 +18,6 @@ Command for generating protobuf classes (from folder "exec/general_srcs/proto_sr
 $ python -m grpc_tools.protoc -I . --python_out=. --pyi_out=. --grpc_python_out=. ./spaceships.proto
 ```
 
-
 ###### 1. Start server in folder "exec/general_srcs/":
 	```shell
 	$ python3 reporting_server.py
@@ -29,18 +28,19 @@ $ python -m grpc_tools.protoc -I . --python_out=. --pyi_out=. --grpc_python_out=
 	```
 
 #### EX01 information:
-
 Usefull web-pages:
 * Schema: [Field customization](https://docs.pydantic.dev/usage/schema/)
 * Validators: [Full description](https://docs.pydantic.dev/usage/validators/)
 
+###### 1. Start server in folder "exec/general_srcs/":
+	```shell
+	$ python3 reporting_server.py
+	```
+###### 2. Start client with coordinates (example: 17 45 40.0409 −29 00 28.118) in folder "exec/":
+	```shell
+	python reporting_client_v2.py <COORDINATES>
+	```
 
-
-
-{
-	'alignment': 'Ally',
-	'length': 223.9,
-	'shipClass': 'Carrier',
-	'armed': True,
-	'officers':
-		[{'firstName': 'Alan', 'lastName': 'Pardesh', 'rank': 'Major'}, {'firstName': 'Laan', 'lastName': 'Epshard', 'rank': 'Commander'}, {'firstName': 'Laan', 'lastName': 'Pardesh', 'rank': 'Lieutenant'}, {'firstName': 'Laan', 'lastName': 'Shepard', 'rank': 'Captain'}, {'firstName': 'Laan', 'lastName': 'Epshard', 'rank': 'Lieutenant'}, {'firstName': 'Nala', 'lastName': 'Epshard', 'rank': 'Lieutenant'}]}
+#### EX02 information:
+Usefull web-pages:
+* SQLAlchemy: [Tutorial](https://pythonru.com/biblioteki/vvedenie-v-sqlalchemy)

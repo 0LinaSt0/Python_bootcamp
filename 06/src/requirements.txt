@@ -1,4 +1,9 @@
+#ex00
 grpcio-tools
 grpcio
 protobuf
+#ex01
 pydantic
+#ex02
+sqlalchemy
+psycopg2

@@ -19,7 +19,6 @@ def reply_valid_handler(message: dict):
 		print(json_obj)
 		return json_load
 	except ValidationError as err:
-		print(err)
 		return {"ERROR": err.json()} | json_load
 
 if __name__ == "__main__":
