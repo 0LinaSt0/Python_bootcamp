@@ -1,3 +1,5 @@
+#!/user/bin/python3
+
 # ~$ ./reporting_client_v2.py 17 45 40.0409 −29 00 28.118
 import sys
 from json import dumps, loads
