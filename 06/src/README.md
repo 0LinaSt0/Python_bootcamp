@@ -19,13 +19,13 @@ $ python -m grpc_tools.protoc -I . --python_out=. --pyi_out=. --grpc_python_out=
 ```
 
 ###### 1. Start server in folder "exec/general_srcs/":
-	```shell
-	$ python3 reporting_server.py
-	```
+```shell
+$ python3 reporting_server.py
+```
 ###### 2. Start client with coordinates (example: 17 45 40.0409 −29 00 28.118) in folder "exec/":
-	```shell
-	python reporting_client.py <COORDINATES>
-	```
+```shell
+python reporting_client.py <COORDINATES>
+```
 
 #### EX01 information:
 Usefull web-pages:
@@ -33,13 +33,13 @@ Usefull web-pages:
 * Validators: [Full description](https://docs.pydantic.dev/usage/validators/)
 
 ###### 1. Start server in folder "exec/general_srcs/":
-	```shell
-	$ python3 reporting_server.py
-	```
+```shell
+$ python3 reporting_server.py
+```
 ###### 2. Start client with coordinates (example: 17 45 40.0409 −29 00 28.118) in folder "exec/":
-	```shell
-	python reporting_client_v2.py <COORDINATES>
-	```
+```shell
+python reporting_client_v2.py <COORDINATES>
+```
 
 #### EX02 information:
 Usefull web-pages:

@@ -10,6 +10,7 @@ class Questions:
 	def take_questions(self, question_path):
 		try:
 			with open(question_path, "r") as openfile:
+				print("Success creating")
 				return load(openfile)
 		except:
 			print("File \"{}\" didn't exec".format(question_path))

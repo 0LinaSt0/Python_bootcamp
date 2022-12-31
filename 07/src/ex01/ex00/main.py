@@ -38,7 +38,7 @@ def who_are_you(answers, reactions):
 
 
 if "__main__" == __name__:
-	queations = Questions("questions.json")
+	queations = Questions()
 	answers = Answers()
 	reactions = Reactions()
 
