@@ -120,7 +120,7 @@ def test_is_respiration_norm(reactions_obj):
 	try:
 		exec_reaction(reactions_obj, 1, key, exec_func, 0, 1)
 	except customException as e:
-		assert e.args[0] == "\nError: something wrong [check Reactions.is_respiration_norm()]\n"
+		assert e.args[0] == "\nError: something wrong [check Reaction.is_respiration_norm()]\n"
 
 
 def test_is_heartRate_norm(reactions_obj):
@@ -133,7 +133,7 @@ def test_is_heartRate_norm(reactions_obj):
 	try:
 		exec_reaction(reactions_obj, 1, key, exec_func, 0, 1)
 	except customException as e:
-		assert e.args[0] == "\nError: something wrong [check Reactions.is_heartRate_norm()]\n"
+		assert e.args[0] == "\nError: something wrong [check Reaction.is_heartRate_norm()]\n"
 
 
 def test_is_blushingLevel_norm(reactions_obj):
@@ -146,7 +146,7 @@ def test_is_blushingLevel_norm(reactions_obj):
 	try:
 		exec_reaction(reactions_obj, 1, key, exec_func, 0, 1)
 	except customException as e:
-		assert e.args[0] == "\nError: something wrong [check Reactions.is_blushingLevel_norm()]\n"
+		assert e.args[0] == "\nError: something wrong [check Reaction.is_blushingLevel_norm()]\n"
 
 
 def test_is_pupillaryDilation_norm(reactions_obj):
@@ -159,4 +159,4 @@ def test_is_pupillaryDilation_norm(reactions_obj):
 	try:
 		exec_reaction(reactions_obj, 1, key, exec_func, 0, 1)
 	except customException as e:
-		assert e.args[0] == "\nError: something wrong [check Reactions.is_pupillaryDilation_norm()]\n"
+		assert e.args[0] == "\nError: something wrong [check Reaction.is_pupillaryDilation_norm()]\n"

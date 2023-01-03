@@ -14,16 +14,13 @@ def estimate(reactions):
 
 def interviewer(questions, answers, reactions):
 	questions_generator = questions.out_questions()
-	for question_key, i in zip(questions_generator, range(1,11)):
+	for question_key, i in questions_generator:
 		print(question_key)
 		try:
 			print("\t1) {}".format(questions.questions_dict[question_key]["1"]))
 			print("\t2) {}".format(questions.questions_dict[question_key]["2"]))
 			print("\t3) {}".format(questions.questions_dict[question_key]["3"]), end='\n\n')
-			answers.append_answer(i)
+			answers.append_answer(question_key)
 			estimate(reactions)
-			print('\n\n')
 		except:
 			raise customException("\nError: invalid quiestions\n")
-
-

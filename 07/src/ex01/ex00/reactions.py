@@ -1,6 +1,6 @@
 
 """
-Reactions evaluation:
+Reaction evaluation:
 	1. Respiration [norm is 12-16]:
 		a) [12; 16] - a human
 		b) another - a replicant
@@ -19,7 +19,7 @@ Reactions evaluation:
 from customException import customException
 
 
-class Reactions:
+class Reaction:
 	def __init__(self):
 		self.reactions = {
 			"respiration": 0,
@@ -70,7 +70,7 @@ class Reactions:
 			return (1 if self.reactions["respiration"] // questions_counter
 					in range(12, 17) else -1)
 		except:
-			raise customException("\nError: something wrong [check Reactions.is_respiration_norm()]\n")
+			raise customException("\nError: something wrong [check Reaction.is_respiration_norm()]\n")
 
 
 	def is_heartRate_norm(self, questions_counter):
@@ -78,7 +78,7 @@ class Reactions:
 			return (1 if self.reactions["heart_rate"] // questions_counter
 					in range(60, 101) else -1)
 		except:
-			raise customException("\nError: something wrong [check Reactions.is_heartRate_norm()]\n")
+			raise customException("\nError: something wrong [check Reaction.is_heartRate_norm()]\n")
 
 
 	def is_blushingLevel_norm(self ,questions_counter):
@@ -86,7 +86,7 @@ class Reactions:
 			return (-1 if self.reactions["blushing_level"] // questions_counter
 					in range(1, 4) else 1)
 		except:
-			raise customException("\nError: something wrong [check Reactions.is_blushingLevel_norm()]\n")
+			raise customException("\nError: something wrong [check Reaction.is_blushingLevel_norm()]\n")
 
 
 	def is_pupillaryDilation_norm(self ,questions_counter):
@@ -94,4 +94,4 @@ class Reactions:
 			return (-1 if self.reactions["pupillary_dilation"] // questions_counter
 					in range(2, 5) else 1)
 		except:
-			raise customException("\nError: something wrong [check Reactions.is_pupillaryDilation_norm()]\n")
+			raise customException("\nError: something wrong [check Reaction.is_pupillaryDilation_norm()]\n")

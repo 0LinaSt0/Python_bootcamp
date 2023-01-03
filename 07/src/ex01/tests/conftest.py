@@ -4,9 +4,10 @@ Command for using this functions with all files:
 """
 
 import pytest, sys
+from json import load
 sys.path.insert(1, "../ex00")
-from answers import Answers
-from reactions import Reactions
+from answers import Answer
+from reactions import Reaction
 
 
 INCORRECTLY = "!INCORRECTLY!\n"
@@ -15,12 +16,12 @@ INPUT_FLAG = "input"
 
 @pytest.fixture
 def answers_obj():
-	return Answers()
+	return Answer()
 
 
 @pytest.fixture
 def reactions_obj():
-	return Reactions()
+	return Reaction()
 
 
 @pytest.fixture
@@ -57,8 +58,8 @@ def answer_human_scenario():
 
 """
 if __name__ == "__main__":
-	obj = Questions("valid.json")
-	obj = Questions("srcs_questions/without_perform.json")
+	obj = Reader("valid.json")
+	obj = Reader("srcs_questions/without_perform.json")
 	for elem in obj.out_questions():
 		print(elem)
 """

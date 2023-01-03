@@ -1,5 +1,5 @@
 """
-Answers evaluation:
+Answer evaluation:
 	1 - it's definitely a replicant (1 score)
 	2 - it's could be a human or a replicant (2 score)
 	3 - it's definitely a human (3 score)
@@ -14,7 +14,7 @@ import json
 from customException import customException
 
 
-class Answers:
+class Answer:
 	def __init__(self):
 		self.answers = {}
 

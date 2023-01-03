@@ -28,12 +28,12 @@ $ chmod 000 without_permission.json
 
 ###### 2. Start tests with next command [in folder "ex01/tests/"]:
 ```shell
-$ coverage run -m pytest -v
+$ coverage run -m --source=../ex00/ pytest -v
 ```
 
 ###### 3. Check wich files were tested [in folder "ex01/tests/"]:
 ```shell
-$ coverage report
+$ coverage report -m
 ```
 
 #### EX02 information:

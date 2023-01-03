@@ -17,9 +17,9 @@ EXAMPLES OF SCENARIOS (aswer[reactions], ...):
 """
 
 
-from questions import Questions
-from answers import Answers
-from reactions import Reactions
+from questions import Reader
+from answers import Answer
+from reactions import Reaction
 from interview_conducting import interviewer
 from customException import customException
 
@@ -42,9 +42,9 @@ def who_are_you(answers, reactions, questions_counter):
 
 if "__main__" == __name__:
 	try:
-		questions = Questions("questions.json")
-		answers = Answers()
-		reactions = Reactions()
+		questions = Reader("questions.json")
+		answers = Answer()
+		reactions = Reaction()
 		interviewer(questions, answers, reactions)
 		who_are_you(answers, reactions, questions.questions_count)
 		answers.write_answers()

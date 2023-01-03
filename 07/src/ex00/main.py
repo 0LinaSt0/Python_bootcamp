@@ -17,36 +17,32 @@ EXAMPLES OF SCENARIOS (aswer[reactions], ...):
 """
 
 
-from questions import Questions
-from answers import Answers
-from reactions import Reactions
-from interview_conducting import interviewer
-from customException import customException
+from Reader import Reader
+from Writer import Writer
+from Interviewer import Interviewer
 
 
-def who_are_you(answers, reactions, questions_counter):
-	print("\t ~~~~~~~ Verdict ~~~~~~~")
-	verdict = (
-		answers.is_human()
-		+ reactions.is_respiration_norm(questions_counter)
-		+ reactions.is_heartRate_norm(questions_counter)
-		+ reactions.is_blushingLevel_norm(questions_counter)
-		+ reactions.is_pupillaryDilation_norm(questions_counter)
-	)
+QUESTIONS_JSON_PATH = "questions.json"
+ANSWERS_JSON_PATH = "answers.json"
 
-	(print("YOU'R A HUMAN. YOU CAN BE FREE") if verdict > 0
-		else print("!DANGER! REPLICANT WAS DETECTED"))
+
+def take_questions():
+	try:
+		reader = Reader(QUESTIONS_JSON_PATH)
+		return reader.readed_dict
+	except Reader.ReaderException as e:
+		print(e)
+		exit(e)
+
+
+def write_answers(answers: dict):
+	writer = Writer(ANSWERS_JSON_PATH, answers)
+	writer.write_to_file()
 
 
 if "__main__" == __name__:
-	try:
-		questions = Questions("questions.json")
-		answers = Answers()
-		reactions = Reactions()
-		interviewer(questions, answers, reactions)
-		who_are_you(answers, reactions, questions.questions_count)
-		answers.write_answers()
-	except customException as e:
-		details = e.args[0]
-		print(details)
-
+	questions = take_questions()
+	interviewer = Interviewer(questions)
+	interviewer.interview_process()
+	interviewer.verdict()
+	write_answers(interviewer.answers.answers)
