@@ -11,6 +11,7 @@ Answers evaluation:
 
 
 import json
+from customException import customException
 
 
 class Answers:
@@ -36,9 +37,10 @@ class Answers:
 		try:
 			num_answer = int(num_answer)
 			if num_answer not in range(1, 4):
-				raise ValueError
+				raise customException("\nError: out of range\n")
 			self.answers[index] = num_answer
-		except ValueError:
+			print("CORRECTLY")
+		except:
 			print("!INCORRECTLY!")
 		else:
 			self.correct_flag = True

@@ -1,12 +1,43 @@
 import pytest
+import sys
+from json import load
+sys.path.insert(1, "../ex00")
+from questions import Questions
+from customException import customException
 
 
-def test_valid_questions_file(capfd, questions_valid_obj):
-	out, err = capfd.readouterr()
-	assert out == "Success creating\n"
+def test_valid_questions_file(capsys):
+	path = "srcs_questions/valid.json"
+	Questions(path)
+	out = capsys.readouterr()
+	assert out.out == "Success creating\n"
 
 
-def test_invalid_questions_file(capfd, questions_invalid_obj):
-	out, err = capfd.readouterr()
-	assert out == "File \"srcs_questions/invalid.json\" didn't exec\n"
+def test_invalid_questions_file():
+	path = "srcs_questions/invalid.json"
+	try:
+		Questions(path)
+	except customException as e:
+		assert e.args[0] == f"\nError: file \"{path}\" cannot be executed\n"
 
+
+def test_withoutPerform_questions_file():
+	path = "srcs_questions/without_permission.json"
+	try:
+		Questions(path)
+	except customException as e:
+		assert e.args[0] == f"\nError: file \"{path}\" cannot be executed\n"
+
+
+def questions_generator(path):
+	with open(path, "r") as openfile:
+		questions_dict =  load(openfile)
+		return (question for question in questions_dict)
+
+
+def test_out_questions():
+	path = "srcs_questions/valid.json"
+	default_questions = questions_generator(path)
+	returned_questions = Questions(path).out_questions()
+	for q1, q2 in zip(default_questions, returned_questions):
+		assert q1 == q2

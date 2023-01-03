@@ -2,9 +2,11 @@ import pytest
 import mock
 import builtins
 import json
-
-INCORRECTLY = "!INCORRECTLY!\n"
-CORRECTLY = "CORRECTLY\n"
+from conftest import (
+	INCORRECTLY, 
+	CORRECTLY,
+	INPUT_FLAG
+)
 
 
 def is_equivalent(capfd, answers_obj, expected_result):
@@ -14,33 +16,33 @@ def is_equivalent(capfd, answers_obj, expected_result):
 
 
 def test_not_int_answers(capfd, answers_obj):
-	with mock.patch.object(builtins, "input", lambda _: "-1jfw"):
+	with mock.patch.object(builtins, INPUT_FLAG, lambda _: "-1jfw"):
 		is_equivalent(capfd, answers_obj, INCORRECTLY)
-	with mock.patch.object(builtins, "input", lambda _: "k"):
+	with mock.patch.object(builtins, INPUT_FLAG, lambda _: "k"):
 		is_equivalent(capfd, answers_obj, INCORRECTLY)
-	with mock.patch.object(builtins, "input", lambda _: ""):
+	with mock.patch.object(builtins, INPUT_FLAG, lambda _: ""):
 		is_equivalent(capfd, answers_obj, INCORRECTLY)
-	with mock.patch.object(builtins, "input", lambda _: "\n"):
+	with mock.patch.object(builtins, INPUT_FLAG, lambda _: "\n"):
 		is_equivalent(capfd, answers_obj, INCORRECTLY)
 
 
 def test_invalid_answers(capfd, answers_obj):
-	with mock.patch.object(builtins, "input", lambda _: "0"):
+	with mock.patch.object(builtins, INPUT_FLAG, lambda _: "0"):
 		is_equivalent(capfd, answers_obj, INCORRECTLY)
-	with mock.patch.object(builtins, "input", lambda _: "4"):
+	with mock.patch.object(builtins, INPUT_FLAG, lambda _: "4"):
 		is_equivalent(capfd, answers_obj, INCORRECTLY)
-	with mock.patch.object(builtins, "input", lambda _: "123456"):
+	with mock.patch.object(builtins, INPUT_FLAG, lambda _: "123456"):
 		is_equivalent(capfd, answers_obj, INCORRECTLY)
-	with mock.patch.object(builtins, "input", lambda _: "-6"):
+	with mock.patch.object(builtins, INPUT_FLAG, lambda _: "-6"):
 		is_equivalent(capfd, answers_obj, INCORRECTLY)
 
 
 def test_valid_answers(capfd, answers_obj):
-	with mock.patch.object(builtins, "input", lambda _: "1"):
+	with mock.patch.object(builtins, INPUT_FLAG, lambda _: "1"):
 		is_equivalent(capfd, answers_obj, CORRECTLY)
-	with mock.patch.object(builtins, "input", lambda _: "2"):
+	with mock.patch.object(builtins, INPUT_FLAG, lambda _: "2"):
 		is_equivalent(capfd, answers_obj, CORRECTLY)
-	with mock.patch.object(builtins, "input", lambda _: "3"):
+	with mock.patch.object(builtins, INPUT_FLAG, lambda _: "3"):
 		is_equivalent(capfd, answers_obj, CORRECTLY)
 
 

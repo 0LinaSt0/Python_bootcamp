@@ -1,5 +1,8 @@
 # FOR INPUT ANSWERS
 
+from customException import customException
+
+
 def estimate(reactions):
 	print("\t~.~.~.~.~.~.~.~.~.~.~\n")
 	print("I SEE. YOUR ...")
@@ -13,11 +16,14 @@ def interviewer(questions, answers, reactions):
 	questions_generator = questions.out_questions()
 	for question_key, i in zip(questions_generator, range(1,11)):
 		print(question_key)
-		print("\t1) {}".format(questions.questions_dict[question_key]["1"]))
-		print("\t2) {}".format(questions.questions_dict[question_key]["2"]))
-		print("\t3) {}".format(questions.questions_dict[question_key]["3"]), end='\n\n')
-		answers.append_answer(i)
-		estimate(reactions)
-		print('\n\n')
+		try:
+			print("\t1) {}".format(questions.questions_dict[question_key]["1"]))
+			print("\t2) {}".format(questions.questions_dict[question_key]["2"]))
+			print("\t3) {}".format(questions.questions_dict[question_key]["3"]), end='\n\n')
+			answers.append_answer(i)
+			estimate(reactions)
+			print('\n\n')
+		except:
+			raise customException("\nError: invalid quiestions\n")
 
 

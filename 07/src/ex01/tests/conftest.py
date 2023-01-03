@@ -6,24 +6,12 @@ Command for using this functions with all files:
 import pytest, sys
 sys.path.insert(1, "../ex00")
 from answers import Answers
-from questions import Questions
 from reactions import Reactions
 
 
-@pytest.fixture
-def questions_valid_obj():
-	return Questions("srcs_questions/valid.json")
-
-
-@pytest.fixture
-def questions_invalid_obj():
-	return Questions("srcs_questions/invalid.json")
-
-
-@pytest.fixture
-def questions_withoutPerform_obj():
-	return Questions("srcs_questions/without_permission.json")
-
+INCORRECTLY = "!INCORRECTLY!\n"
+CORRECTLY = "CORRECTLY\n"
+INPUT_FLAG = "input"
 
 @pytest.fixture
 def answers_obj():

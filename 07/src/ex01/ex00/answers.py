@@ -11,12 +11,12 @@ Answers evaluation:
 
 
 import json
+from customException import customException
 
 
 class Answers:
 	def __init__(self):
 		self.answers = {}
-		self.correct_flag = False
 
 
 	def write_answers(self):
@@ -35,9 +35,9 @@ class Answers:
 		try:
 			num_answer = int(num_answer)
 			if num_answer not in range(1, 4):
-				raise ValueError
+				raise customException("\nError: out of range\n")
 			print("CORRECTLY")
-		except ValueError:
+		except:
 			print("!INCORRECTLY!")
 
 

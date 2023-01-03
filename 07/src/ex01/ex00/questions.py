@@ -1,4 +1,5 @@
 from json import load
+from customException import customException
 
 
 class Questions:
@@ -10,11 +11,11 @@ class Questions:
 	def take_questions(self, question_path):
 		try:
 			with open(question_path, "r") as openfile:
+				log = load(openfile)
 				print("Success creating")
-				return load(openfile)
+				return log
 		except:
-			print("File \"{}\" didn't exec".format(question_path))
-			return {}
+			raise customException("\nError: file \"{}\" cannot be executed\n".format(question_path))
 
 	def out_questions(self):
 		return (question for question in self.questions_dict)

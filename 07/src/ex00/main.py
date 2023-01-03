@@ -21,16 +21,17 @@ from questions import Questions
 from answers import Answers
 from reactions import Reactions
 from interview_conducting import interviewer
+from customException import customException
 
 
-def who_are_you(answers, reactions):
+def who_are_you(answers, reactions, questions_counter):
 	print("\t ~~~~~~~ Verdict ~~~~~~~")
 	verdict = (
 		answers.is_human()
-		+ reactions.is_respiration_norm()
-		+ reactions.is_heartRate_norm()
-		+ reactions.is_blushingLevel_norm()
-		+ reactions.is_pupillaryDilation_norm()
+		+ reactions.is_respiration_norm(questions_counter)
+		+ reactions.is_heartRate_norm(questions_counter)
+		+ reactions.is_blushingLevel_norm(questions_counter)
+		+ reactions.is_pupillaryDilation_norm(questions_counter)
 	)
 
 	(print("YOU'R A HUMAN. YOU CAN BE FREE") if verdict > 0
@@ -38,11 +39,14 @@ def who_are_you(answers, reactions):
 
 
 if "__main__" == __name__:
-	queations = Questions("questions.json")
-	answers = Answers()
-	reactions = Reactions()
-
-	interviewer(queations, answers, reactions)
-	who_are_you(answers, reactions)
-	answers.write_answers()
+	try:
+		questions = Questions("questions.json")
+		answers = Answers()
+		reactions = Reactions()
+		interviewer(questions, answers, reactions)
+		who_are_you(answers, reactions, questions.questions_count)
+		answers.write_answers()
+	except customException as e:
+		details = e.args[0]
+		print(details)
 
