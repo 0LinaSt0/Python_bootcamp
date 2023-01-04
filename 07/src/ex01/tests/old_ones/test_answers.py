@@ -8,7 +8,6 @@ from conftest import (
 	INPUT_FLAG
 )
 
-
 def is_equivalent(capfd, answers_obj, expected_result):
 	answers_obj.append_answer(0)
 	out, err = capfd.readouterr()

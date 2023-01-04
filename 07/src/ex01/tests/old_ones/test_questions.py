@@ -1,9 +1,4 @@
 import pytest
-import sys
-from json import load
-sys.path.insert(1, "../ex00")
-from questions import Reader
-from customException import customException
 
 
 def test_valid_questions_file(capsys):

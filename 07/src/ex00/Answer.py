@@ -10,7 +10,7 @@ Answer evaluation:
 """
 
 class Answer:
-	def __init__(self, question, answer_options):
+	def __init__(self, question, answer_options: dict):
 		self.question = question
 		self.answer_options = answer_options
 		self.is_valid = False
@@ -24,24 +24,24 @@ class Answer:
 
 	def take_answer(self):
 		while not self.is_valid:
-			self.read_input()
-			self.check_answer()
+			try:
+				self.read_input()
+				self.check_answer()
+			except:
+				print("\x1b[2;33m" + "!INCORRECTLY!" + "\x1b[0m")
 
 	
 	def read_input(self):
 		try:
-			self.num_answer = int(input("PLEASE, GIVE ME NUMBER OF ANSWER (INT): "))
+			self.num_answer = int(input("\nPLEASE, GIVE ME NUMBER OF ANSWER (INT): "))
 		except:
-			print("!INCORRECTLY!")
+			raise Answer.AnswerException("\nError: invalid input\n")
 
 
 	def check_answer(self):
-		try:
-			if self.num_answer not in range(1, (len(self.answer_options) + 1)):
-				raise Answer.AnswerException("\nError: out of range\n")
-			self.is_valid = True
-		except:
-			print("!INCORRECTLY!")
+		if self.num_answer not in range(1, (len(self.answer_options) + 1)):
+			raise Answer.AnswerException("\nError: out of range\n")
+		self.is_valid = True
 
 
 
