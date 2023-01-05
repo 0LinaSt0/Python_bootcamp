@@ -3,6 +3,7 @@ import sys
 import mock
 import builtins
 from conftest import (
+	MockedX,
 	INCORRECTLY,
 	INPUT_FLAG,
 	FALSE_ERROR,
@@ -37,16 +38,6 @@ def is_incorrect(reaction, capsys, err):
 	reaction.grade_reaction()
 	out = capsys.readouterr()
 	assert out.out == err
-
-
-class MockedX:
-	def change_read_input(self):
-		pass
-
-
-	def change_check_grade(self):
-		self.is_valid = True
-		raise Reaction.ReactionException("\nError: out of range\n")
 
 
 class TestReactions:

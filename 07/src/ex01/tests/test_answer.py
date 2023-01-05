@@ -3,6 +3,8 @@ import sys
 import mock
 import builtins
 from conftest import (
+	MockedX, 
+	EXAMPLE_KEY,
 	INCORRECTLY,
 	INPUT_FLAG,
 	FALSE_ERROR,
@@ -12,8 +14,6 @@ from conftest import (
 sys.path.insert(1, "../../ex00")
 from Answer import Answer
 
-
-RETURNED = "You're watching television. Suddenly you spot a wasp crawling on your arm. How do you react?"
 
 
 def check_input(obj, argum, expected_result, err):
@@ -32,16 +32,6 @@ def check_answer(obj, num_argum, expected_result, err):
 		assert obj.is_valid == expected_result
 	except Answer.AnswerException as e:
 		assert e.args[0] == err
-
-
-class MockedX:
-	def change_read_input(self):
-		pass
-	
-	
-	def change_check_answer(self):
-		self.is_valid = True
-		raise Answer.AnswerException("\nError: invalid input\n")
 
 
 class TestAnswer:
@@ -84,5 +74,5 @@ class TestAnswerKeeper:
 	def test_save_answer(self, answer_keeper_obj, answer_obj):
 		answer_keeper_obj.save_answer(answer_obj.question, 2)
 		for key, value in answer_keeper_obj.answers.items():
-			assert key == RETURNED
+			assert key == EXAMPLE_KEY
 			assert value == 2

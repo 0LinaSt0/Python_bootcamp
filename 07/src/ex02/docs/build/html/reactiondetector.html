@@ -1,0 +1,227 @@
+
+<!DOCTYPE html>
+
+<html lang="English">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>ReactionDetector module &#8212; Voight-Kampff test 0.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Reaction module" href="reaction.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="reactiondetector-module">
+<h1><strong>ReactionDetector module</strong><a class="headerlink" href="#reactiondetector-module" title="Permalink to this heading">¶</a></h1>
+<p>For detecting replicants you can use the <code class="docutils literal notranslate"><span class="pre">ReactionsDetector</span></code> class:</p>
+<span class="target" id="module-ReactionsDetector"></span><dl class="simple">
+<dt>Reaction evaluation:</dt><dd><ol class="arabic simple">
+<li><dl class="simple">
+<dt>Respiration [norm is 12-16]:</dt><dd><ul class="simple">
+<li><p>[12; 16] - a human</p></li>
+<li><p>another - a replicant</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Heart rate [norm is 60-100]:</dt><dd><ul class="simple">
+<li><p>[60; 100] - a human</p></li>
+<li><p>another - a replicant</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Blushing level [just 6 levels]:</dt><dd><ul class="simple">
+<li><p>[1; 3] - a replicant</p></li>
+<li><p>[4; 6] - a human</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Pupillary dilation [from 2 to 8]:</dt><dd><ul class="simple">
+<li><p>[2; 4] - a replicant</p></li>
+<li><p>[5; 8] - a human</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="ReactionsDetector.ReactionsDetector">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">ReactionsDetector.</span></span><span class="sig-name descname"><span class="pre">ReactionsDetector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reactions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">questions_counter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ReactionsDetector.ReactionsDetector" title="Permalink to this definition">¶</a></dt>
+<dd><p>ReactionsDetector  class is used for detecting replicants</p>
+<p><code class="docutils literal notranslate"><span class="pre">Attributes</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reactions</strong> (<em>dict</em>) -- dict with reactions' grades</p></li>
+<li><p><strong>questions_counter</strong> (<em>int</em>) -- counter of asked questions</p></li>
+<li><p><strong>ReactionDetectorException</strong> (<em>class</em>) -- custom exception for 
+ReactionsDetector class</p></li>
+</ul>
+</dd>
+</dl>
+<p><code class="docutils literal notranslate"><span class="pre">Methods</span></code></p>
+<dl class="simple">
+<dt>is_human()</dt><dd><p>Gives human/replicant verdict</p>
+</dd>
+<dt>check_respiration()</dt><dd><p>Checks respondent's respiration</p>
+</dd>
+<dt>check_heartRate()</dt><dd><p>Checks respondent's heart rate</p>
+</dd>
+<dt>check_blushingLevel()</dt><dd><p>Checks respondent's blushing level</p>
+</dd>
+<dt>check_pupillaryDilation()</dt><dd><p>Checks respondent's pupillary dilation</p>
+</dd>
+</dl>
+<dl class="py exception">
+<dt class="sig sig-object py" id="ReactionsDetector.ReactionsDetector.ReactionDetectorException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ReactionDetectorException</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ReactionsDetector.ReactionsDetector.ReactionDetectorException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Custom exception for ReactionsDetector inherited from 
+Exception</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">Attributes</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">param string message<span class="colon">:</span></dt>
+<dd class="field-odd"><p>exception message</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ReactionsDetector.ReactionsDetector.check_blushingLevel">
+<span class="sig-name descname"><span class="pre">check_blushingLevel</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ReactionsDetector.ReactionsDetector.check_blushingLevel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks respondent's blushing level</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ReactionsDetector.ReactionsDetector.check_heartRate">
+<span class="sig-name descname"><span class="pre">check_heartRate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ReactionsDetector.ReactionsDetector.check_heartRate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks respondent's heart rate</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ReactionsDetector.ReactionsDetector.check_pupillaryDilation">
+<span class="sig-name descname"><span class="pre">check_pupillaryDilation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ReactionsDetector.ReactionsDetector.check_pupillaryDilation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks respondent's pupillary dilation</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ReactionsDetector.ReactionsDetector.check_respiration">
+<span class="sig-name descname"><span class="pre">check_respiration</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ReactionsDetector.ReactionsDetector.check_respiration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks respondent's respiration</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ReactionsDetector.ReactionsDetector.is_human">
+<span class="sig-name descname"><span class="pre">is_human</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ReactionsDetector.ReactionsDetector.is_human" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gives human/replicant verdict</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Voight-Kampff test</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="answer.html"><strong>Answer module</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="reader.html"><strong>Reader module</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="writer.html"><strong>Writer module</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="question.html"><strong>Question module</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="reaction.html"><strong>Reaction module</strong></a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><strong>ReactionDetector module</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ReactionsDetector.ReactionsDetector"><code class="docutils literal notranslate"><span class="pre">ReactionsDetector</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="reaction.html" title="previous chapter"><strong>Reaction module</strong></a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Msalena.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 6.1.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/reactiondetector.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

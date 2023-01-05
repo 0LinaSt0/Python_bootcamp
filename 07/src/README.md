@@ -21,20 +21,32 @@ $ python3 main.py
 
 #### EX01 information:
 
-###### 1. Change permission [in folder "ex01/tests/srcs_quiestions"]:
+###### 1. Change permission [in folder "ex01/tests/srcs_tests"]:
 ```shell
 $ chmod 000 without_permission.json
+$ chmod 000 without_permission_answers.json
 ```
 
 ###### 2. Start tests with next command [in folder "ex01/tests/"]:
 ```shell
-$ coverage run -m --source=../ex00/ pytest -v
+$ coverage run -m --source=../../ex00/ pytest -v
 ```
 
-###### 3. Check wich files were tested [in folder "ex01/tests/"]:
+###### 3. Check which files were tested [in folder "ex01/tests/"]:
 ```shell
 $ coverage report -m
 ```
 
 #### EX02 information:
+Creating documentation with sphinx:
+```shell
+$ sphinx-quickstart docs
+```
+
+Create html file with documentation
+```shell
+$ sphinx-build -b html docs/source/ docs/build/html
+```
+
+Start server and look at documetation [in folder "ex02/"] in way: http://localhost:8000/docs/build/html/index.html
 

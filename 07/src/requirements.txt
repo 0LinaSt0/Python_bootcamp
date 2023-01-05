@@ -1,5 +1,7 @@
 #ex01
 pytest
 mock
-pytest-mock
 coverage
+
+#ex02
+sphinx

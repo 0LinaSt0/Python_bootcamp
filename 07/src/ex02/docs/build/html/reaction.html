@@ -1,0 +1,289 @@
+
+<!DOCTYPE html>
+
+<html lang="English">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Reaction module &#8212; Voight-Kampff test 0.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Question module" href="question.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="reaction-module">
+<h1><strong>Reaction module</strong><a class="headerlink" href="#reaction-module" title="Permalink to this heading">¶</a></h1>
+<p>For gread reaction you can use the <code class="docutils literal notranslate"><span class="pre">Reaction</span></code> module:</p>
+<span class="target" id="module-Reaction"></span><dl class="py class">
+<dt class="sig sig-object py" id="Reaction.BlushingLevel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Reaction.</span></span><span class="sig-name descname"><span class="pre">BlushingLevel</span></span><a class="headerlink" href="#Reaction.BlushingLevel" title="Permalink to this definition">¶</a></dt>
+<dd><p>BlushingLevel child class is used for representing a blushing level
+reaction</p>
+<p><code class="docutils literal notranslate"><span class="pre">Methods</span></code></p>
+<dl class="simple">
+<dt>check_conditions()</dt><dd><p>Check special conditions for blushing level reaction</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="Reaction.BlushingLevel.check_conditions">
+<span class="sig-name descname"><span class="pre">check_conditions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Reaction.BlushingLevel.check_conditions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check special conditions for blushing level reaction</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Reaction.HeartRate">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Reaction.</span></span><span class="sig-name descname"><span class="pre">HeartRate</span></span><a class="headerlink" href="#Reaction.HeartRate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Respiration child class is used for representing a heart rate
+reaction</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Reaction.PupillaryDilation">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Reaction.</span></span><span class="sig-name descname"><span class="pre">PupillaryDilation</span></span><a class="headerlink" href="#Reaction.PupillaryDilation" title="Permalink to this definition">¶</a></dt>
+<dd><p>PupillaryDilation child class is used for representing 
+a pupillary dilation reaction</p>
+<p><code class="docutils literal notranslate"><span class="pre">Methods</span></code></p>
+<dl class="simple">
+<dt>check_conditions()</dt><dd><p>Check special conditions for pupillary dilation reaction</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="Reaction.PupillaryDilation.check_conditions">
+<span class="sig-name descname"><span class="pre">check_conditions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Reaction.PupillaryDilation.check_conditions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check special conditions for pupillary dilation reaction</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Reaction.Reaction">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Reaction.</span></span><span class="sig-name descname"><span class="pre">Reaction</span></span><a class="headerlink" href="#Reaction.Reaction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reaction parent class is used for representing a reactions for 
+children</p>
+<p><code class="docutils literal notranslate"><span class="pre">Attributes</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>grade</strong> (<em>int</em>) -- drade of reaction</p></li>
+<li><p><strong>evaluated</strong> (<em>enum</em>) -- enum of Reactions</p></li>
+<li><p><strong>is_valid</strong> (<em>bool</em>) -- flag for checking valid grade</p></li>
+<li><p><strong>ReactionException</strong> (<em>class</em>) -- custom exception for Reaction class</p></li>
+</ul>
+</dd>
+</dl>
+<p><code class="docutils literal notranslate"><span class="pre">Methods</span></code></p>
+<dl class="simple">
+<dt>grade_reaction()</dt><dd><p>Grades respondent's reaction</p>
+</dd>
+<dt>read_input()</dt><dd><p>Reads gave reaction</p>
+</dd>
+<dt>check_grade()</dt><dd><p>Checks that gave reaction is valid</p>
+</dd>
+<dt>check_conditions()</dt><dd><p>Check special conditions for concret reaction</p>
+</dd>
+</dl>
+<dl class="py exception">
+<dt class="sig sig-object py" id="Reaction.Reaction.ReactionException">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ReactionException</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Reaction.Reaction.ReactionException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Custom exception for Reaction inherited from Exception</p>
+<p><code class="docutils literal notranslate"><span class="pre">Attributes</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>message</strong> (<em>string</em>) -- exception message</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Reaction.Reaction.check_conditions">
+<span class="sig-name descname"><span class="pre">check_conditions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Reaction.Reaction.check_conditions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check special conditions for concret reaction: implementing 
+in children classes</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Reaction.Reaction.check_grade">
+<span class="sig-name descname"><span class="pre">check_grade</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Reaction.Reaction.check_grade" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks that gave reaction is valid</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#Reaction.Reaction.ReactionException" title="Reaction.Reaction.ReactionException"><strong>Reaction.ReactionException</strong></a> -- if grade out of range</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Reaction.Reaction.grade_reaction">
+<span class="sig-name descname"><span class="pre">grade_reaction</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Reaction.Reaction.grade_reaction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Grades respondent's reaction</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Reaction.Reaction.read_input">
+<span class="sig-name descname"><span class="pre">read_input</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Reaction.Reaction.read_input" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads gave reaction</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#Reaction.Reaction.ReactionException" title="Reaction.Reaction.ReactionException"><strong>Reaction.ReactionException</strong></a> -- if invalid input</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Reaction.Reactions">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Reaction.</span></span><span class="sig-name descname"><span class="pre">Reactions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Reaction.Reactions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reactions class is enum with different reactions</p>
+<p><code class="docutils literal notranslate"><span class="pre">Attributes</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>DEFAULT</strong> (<em>string</em>) -- default</p></li>
+<li><p><strong>RESPIRATION</strong> (<em>string</em>) -- respiration</p></li>
+<li><p><strong>HEART_RATE</strong> (<em>string</em>) -- heart rate</p></li>
+<li><p><strong>BLUSHING_LEVEL</strong> (<em>string</em>) -- blushing level [1, 6]</p></li>
+<li><p><strong>PUPILLARY_DILATION</strong> (<em>string</em>) -- pupillary dilation [2, 8]</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Reaction.ReactionsCounter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Reaction.</span></span><span class="sig-name descname"><span class="pre">ReactionsCounter</span></span><a class="headerlink" href="#Reaction.ReactionsCounter" title="Permalink to this definition">¶</a></dt>
+<dd><p>ReactionsCounter class is counting grade reactions</p>
+<p><code class="docutils literal notranslate"><span class="pre">Methods</span></code></p>
+<dl class="simple">
+<dt>update_reaction()</dt><dd><p>Regrade passing reaction</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="Reaction.ReactionsCounter.update_reaction">
+<span class="sig-name descname"><span class="pre">update_reaction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reaction</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#Reaction.Reactions" title="Reaction.Reactions"><span class="pre">Reactions</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">update_sum</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Reaction.ReactionsCounter.update_reaction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Regrade passing reaction</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>reaction</strong> (<em>class</em>) -- changed reaction</p></li>
+<li><p><strong>update_sum</strong> (<em>int</em>) -- how much to increase changed reaction</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="Reaction.Respiration">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Reaction.</span></span><span class="sig-name descname"><span class="pre">Respiration</span></span><a class="headerlink" href="#Reaction.Respiration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Respiration child class is used for representing a respiration
+reaction</p>
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Voight-Kampff test</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="answer.html"><strong>Answer module</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="reader.html"><strong>Reader module</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="writer.html"><strong>Writer module</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="question.html"><strong>Question module</strong></a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><strong>Reaction module</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Reaction.BlushingLevel"><code class="docutils literal notranslate"><span class="pre">BlushingLevel</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Reaction.HeartRate"><code class="docutils literal notranslate"><span class="pre">HeartRate</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Reaction.PupillaryDilation"><code class="docutils literal notranslate"><span class="pre">PupillaryDilation</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Reaction.Reaction"><code class="docutils literal notranslate"><span class="pre">Reaction</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Reaction.Reactions"><code class="docutils literal notranslate"><span class="pre">Reactions</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Reaction.ReactionsCounter"><code class="docutils literal notranslate"><span class="pre">ReactionsCounter</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Reaction.Respiration"><code class="docutils literal notranslate"><span class="pre">Respiration</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="question.html" title="previous chapter"><strong>Question module</strong></a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Msalena.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 6.1.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/reaction.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

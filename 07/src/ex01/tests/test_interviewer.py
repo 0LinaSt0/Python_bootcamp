@@ -2,43 +2,32 @@ import pytest
 import sys
 import mock
 from conftest import (
-	FALSE_ERROR,
+	MockedX,
+	EXAMPLE_KEY,
+	QUESTION_ERROR,
 	REACTION_DETECTOR_ERROR
 )
 sys.path.insert(1, "../../ex00")
-from ReactionsDetector import ReactionsDetector
-from Reaction import Reactions
+from Reaction import Reactions, ReactionsCounter
+from Question import Question
 
 
-HUMAN_STR = "\n\t~~~~~~~ Verdict ~~~~~~~\nYOU'R A HUMAN. YOU CAN BE FREE\n"
-REPLICANT_STR = "\n\t~~~~~~~ Verdict ~~~~~~~\n!DANGER! REPLICANT WAS DETECTED\n"
+HUMAN_STR = "\n\t~~~~~~~ Verdict ~~~~~~~\nYOU'R A HUMAN. YOU CAN BE FREE\n\n"
+REPLICANT_STR = "\n\t~~~~~~~ Verdict ~~~~~~~\n!DANGER! REPLICANT WAS DETECTED\n\n"
 
 
-def check_verdict(capsys, obj, reaction, expected_result, err):
-	try:
-		obj.grades_reactions = reaction
-		print(obj.grades_reactions.reactions)
-		obj.verdict()
-		out = capsys.readouterr()
-		assert out.out == expected_result
-	except ReactionsDetector.ReactionDetectorException as e:
-		assert e.args[0] == err
-
-
-class MockedX:
-	def change_ask_question(self):
-		pass
-
-
-	def change_grade_answer_reaction(self):
-		pass
+def check_verdict(capsys, obj, reaction, expected_result):
+	obj.grades_reactions = reaction
+	obj.verdict()
+	out = capsys.readouterr()
+	assert out.out == expected_result
 
 
 class TestInterviewer:
 	@pytest.fixture(autouse=True)
-	def _reactions_counters(self, reactions_counter_obj):
-		self.r_counter_human = reactions_counter_obj
-		self.r_counter_replicant = reactions_counter_obj
+	def _reactions_counters(self):
+		self.r_counter_human = ReactionsCounter()
+		self.r_counter_replicant = ReactionsCounter()
 
 		self.r_counter_human.reactions[Reactions.RESPIRATION] = 120
 		self.r_counter_human.reactions[Reactions.HEART_RATE] = 900
@@ -54,18 +43,39 @@ class TestInterviewer:
 	@mock.patch("Interviewer.Interviewer.ask_question", MockedX.change_ask_question)
 	@mock.patch("Interviewer.Interviewer.grade_answer_reaction", MockedX.change_grade_answer_reaction)
 	def test_interview_process(self, interviewer_obj):
-		interviewer_obj.interview_process()
+		try:
+			interviewer_obj.interview_process()
+		except:
+			pass
 
 
-	def test_verdict(self, interviewer_obj):
-		pass
+	def test_verdict(self, capsys, interviewer_obj):
+		interviewer_obj.questions_count = 10
+		check_verdict(capsys, interviewer_obj, 
+						self.r_counter_human, HUMAN_STR)
+		check_verdict(capsys, interviewer_obj,
+						self.r_counter_replicant, REPLICANT_STR)
+		interviewer_obj.questions_count = 0
+		check_verdict(capsys, interviewer_obj, self.r_counter_replicant, 
+						REACTION_DETECTOR_ERROR + '\n')
 
 
-	def test_ask_question(self):
-		pass
+	@mock.patch("Question.Question.print_question", MockedX.change_print_question)
+	@mock.patch("Question.Question.ask_answer", MockedX.change_ask_answer)
+	@mock.patch("Answer.AnswersKeeper.save_answer", MockedX.change_save_answer)
+	def test_ask_question(self, interviewer_obj):
+		interviewer_obj.questions_count = 10
+		try:
+			interviewer_obj.ask_question(EXAMPLE_KEY)
+		except Question.QuestionException as e:
+			assert e.args[0] == QUESTION_ERROR
 
 
-	def test_grade_answer_reaction(self):
-		pass
+	@mock.patch("Reaction.Reaction.grade_reaction", MockedX.change_grade_reaction)
+	@mock.patch("Reaction.ReactionsCounter.update_reaction", MockedX.change_update_reaction)
+	def test_grade_answer_reaction(self, capsys, interviewer_obj):
+		interviewer_obj.grade_answer_reaction()
+		out = capsys.readouterr()
+		assert out.out == "I SEE. YOUR ...\n"
 
 

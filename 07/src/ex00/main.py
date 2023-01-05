@@ -26,25 +26,30 @@ QUESTIONS_JSON_PATH = "questions.json"
 ANSWERS_JSON_PATH = "answers.json"
 
 
-def take_questions():
+def take_questions(path):
 	try:
-		reader = Reader(QUESTIONS_JSON_PATH)
-		return reader.readed_dict
+		reader = Reader()
+		readed_dict = reader.read_file(path)
+		return readed_dict
 	except Reader.ReaderException as e:
 		exit(e)
 
 
-def write_answers(answers: dict):
+def write_answers(answers: dict, path):
 	try:
-		writer = Writer(ANSWERS_JSON_PATH, answers)
-		writer.write_to_file()
+		writer = Writer()
+		writer.write_to_file(path, answers)
 	except Writer.WriterException as e:
 		print(e)
 
 
-if "__main__" == __name__:
-	questions = take_questions()
+def programm_process():
+	questions = take_questions(QUESTIONS_JSON_PATH)
 	interviewer = Interviewer(questions)
 	interviewer.interview_process()
 	interviewer.verdict()
-	write_answers(interviewer.answers.answers)
+	write_answers(interviewer.answers.answers, ANSWERS_JSON_PATH)
+
+
+if "__main__" == __name__:
+	programm_process()

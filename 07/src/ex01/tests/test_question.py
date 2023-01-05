@@ -1,17 +1,12 @@
 import pytest
 import mock
 import sys
+from conftest import MockedX, QUESTION_ERROR
 sys.path.insert(1, "../../ex00")
 from Question import Question
 
 
 VALID_STRING = "\n1. Your little boy shows you his butterfly collection, plus the killing jar. What do you say?\n\t1) Oh, lovely!\n\t2) That's nice, but why don't you keep the killing jar for yourself?\n\t3) Nothing. I take my boy to the doctor\n"
-RETURNED_ERROR = "\nError: answer options are missing\n"
-
-
-class MockedX:
-	def change_ask_answer(self):
-		pass
 
 
 class TestQuestion:
@@ -25,7 +20,7 @@ class TestQuestion:
 		try:
 			question_invalid_obj.print_question()
 		except Question.QuestionException as e:
-			assert e.args[0] == RETURNED_ERROR
+			assert e.args[0] == QUESTION_ERROR
 
 
 	@mock.patch("Answer.Answer.take_answer", MockedX.change_ask_answer)
