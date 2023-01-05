@@ -1,8 +1,3 @@
-"""
-Command for using this functions with all files:
-	$ pytest -k divisible -v
-"""
-
 import pytest
 import sys
 from enum import Enum
@@ -23,6 +18,24 @@ from Reaction import (
 	ReactionsCounter
 )
 
+"""
+**CONFTEST WITH ALL NEEDING OBJECTS**
+
+Using global variables:
+
+	:param str INVALID_INPUT_ERROR: message invalid input
+	:param str INVALID_RANGE_ERROR: message out of
+	:param str REACTION_DETECTOR_ERROR: message wrong arguments in 
+		ReactionsDetector
+	:param str QUESTION_ERROR: message answer options are missing
+	:param str READER_ERROR: message reader cannot be execute
+	:param str WRITER_ERROR: message writer couldn't write data 
+	:param str FALSE_ERROR: wrong message
+	:param str INCORRECTLY: incorrectly message
+	:param str INPUT_FLAG: input message
+	:param str EXAMPLE_KEY: excample key
+"""
+
 INVALID_INPUT_ERROR = "\nError: invalid input\n"
 INVALID_RANGE_ERROR = "\nError: out of range\n"
 REACTION_DETECTOR_ERROR = "\nError: something wrong: check arguments in ReactionsDetector.is_reaction_norm\n"
@@ -37,17 +50,67 @@ EXAMPLE_KEY = "You're watching television. Suddenly you spot a wasp crawling on 
 
 
 class PathsQuestions(Enum):
+	"""PathsQuestions class is enum with different paths
+
+		``Attributes``
+		
+		:param str VALID: valid json
+		:param str INVALID_EMPTY: empty json
+		:param str INVALID_WITHOUT_PERMIT: json without permittions
+
+	"""
+
 	VALID = "srcs_tests/valid.json"
 	INVALID_EMPTY = "srcs_tests/invalid_empty.json"
 	INVALID_WITHOUT_PERMIT = "srcs_tests/without_permission.json"
 
 
 class PathsAnswers(Enum):
+	"""PathsAnswers class is enum with different paths
+
+		``Attributes``
+		
+		:param str VALID: valid json
+		:param str INVALID_WITHOUT_PERMIT: json without permittions
+
+	"""
+
 	VALID = "srcs_tests/valid_answers.json"
 	INVALID_WITHOUT_PERMIT = "srcs_tests/without_permission_answers.json"
 
 
 class MockedX:
+	"""MockedX class is used for changing including functions in mock
+
+		``Methods``
+
+		change_read_file()
+			Changes read_file func in Reader class
+
+		change_interview_process()
+			Changes interview_process func in Interviewer class
+
+		change_verdict()
+			Changes verdict func in Interviewer class
+
+		change_read_file_except()
+			Changes read_file func with exception in Reader
+
+		change_write_to_file()
+			Changes write_to_file func in Writer class
+
+		change_read_input()
+			Changes read_input func in Answer and Reaction classes
+
+		change_check_answer()
+			Changes check_answer func in Answer class
+
+		change_ask_answer()
+			Changes ask_answer func in Answer class
+		
+
+	"""
+
 	def change_read_file(self, a):
 		return questions_dict()
 
@@ -99,10 +162,6 @@ class MockedX:
 		)
 		answer.num_answer = 1
 		return answer
-
-
-	def change_read_input(self):
-		pass
 
 
 	def change_check_grade(self):

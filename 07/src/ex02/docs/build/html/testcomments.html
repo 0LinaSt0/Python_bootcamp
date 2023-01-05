@@ -1,0 +1,335 @@
+
+<!DOCTYPE html>
+
+<html lang="English">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Tests description &#8212; Voight-Kampff test 0.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Interviewer module" href="interviewer.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="tests-description">
+<h1><strong>Tests description</strong><a class="headerlink" href="#tests-description" title="Permalink to this heading">¶</a></h1>
+<p>Description for all tests modules:</p>
+<span class="target" id="module-conftest"></span><dl class="py class">
+<dt class="sig sig-object py" id="conftest.MockedX">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">conftest.</span></span><span class="sig-name descname"><span class="pre">MockedX</span></span><a class="headerlink" href="#conftest.MockedX" title="Permalink to this definition">¶</a></dt>
+<dd><p>MockedX class is used for changing including functions in mock</p>
+<p><code class="docutils literal notranslate"><span class="pre">Methods</span></code></p>
+<dl class="simple">
+<dt>change_read_file()</dt><dd><p>Changes read_file func in Reader class</p>
+</dd>
+<dt>change_interview_process()</dt><dd><p>Changes interview_process func in Interviewer class</p>
+</dd>
+<dt>change_verdict()</dt><dd><p>Changes verdict func in Interviewer class</p>
+</dd>
+<dt>change_read_file_except()</dt><dd><p>Changes read_file func with exception in Reader</p>
+</dd>
+<dt>change_write_to_file()</dt><dd><p>Changes write_to_file func in Writer class</p>
+</dd>
+<dt>change_read_input()</dt><dd><p>Changes read_input func in Answer and Reaction classes</p>
+</dd>
+<dt>change_check_answer()</dt><dd><p>Changes check_answer func in Answer class</p>
+</dd>
+<dt>change_ask_answer()</dt><dd><p>Changes ask_answer func in Answer class</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="conftest.PathsAnswers">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">conftest.</span></span><span class="sig-name descname"><span class="pre">PathsAnswers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conftest.PathsAnswers" title="Permalink to this definition">¶</a></dt>
+<dd><p>PathsAnswers class is enum with different paths</p>
+<p><code class="docutils literal notranslate"><span class="pre">Attributes</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>VALID</strong> (<em>str</em>) -- valid json</p></li>
+<li><p><strong>INVALID_WITHOUT_PERMIT</strong> (<em>str</em>) -- json without permittions</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="conftest.PathsQuestions">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">conftest.</span></span><span class="sig-name descname"><span class="pre">PathsQuestions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#conftest.PathsQuestions" title="Permalink to this definition">¶</a></dt>
+<dd><p>PathsQuestions class is enum with different paths</p>
+<p><code class="docutils literal notranslate"><span class="pre">Attributes</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>VALID</strong> (<em>str</em>) -- valid json</p></li>
+<li><p><strong>INVALID_EMPTY</strong> (<em>str</em>) -- empty json</p></li>
+<li><p><strong>INVALID_WITHOUT_PERMIT</strong> (<em>str</em>) -- json without permittions</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<span class="target" id="module-test_main"></span><span class="target" id="module-test_reader"></span><dl class="py class">
+<dt class="sig sig-object py" id="test_reader.TestReader">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">test_reader.</span></span><span class="sig-name descname"><span class="pre">TestReader</span></span><a class="headerlink" href="#test_reader.TestReader" title="Permalink to this definition">¶</a></dt>
+<dd><p>TestReader class is used for testing reader</p>
+<p><code class="docutils literal notranslate"><span class="pre">Methods</span></code></p>
+<dl class="simple">
+<dt>test_read_file()</dt><dd><p>Checking read_file</p>
+</dd>
+</dl>
+</dd></dl>
+
+<span class="target" id="module-test_interviewer"></span><dl class="py data">
+<dt class="sig sig-object py" id="test_interviewer.REPLICANT_STR">
+<span class="sig-prename descclassname"><span class="pre">test_interviewer.</span></span><span class="sig-name descname"><span class="pre">REPLICANT_STR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\n\t~~~~~~~</span> <span class="pre">Verdict</span> <span class="pre">~~~~~~~\n!DANGER!</span> <span class="pre">REPLICANT</span> <span class="pre">WAS</span> <span class="pre">DETECTED\n\n'</span></em><a class="headerlink" href="#test_interviewer.REPLICANT_STR" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>TESTS FOR INTERVIEWER MODULE</strong></p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">Finctions</span></code></p>
+<dl class="simple">
+<dt>check_verdict()</dt><dd><p>Check verdict</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="test_interviewer.TestInterviewer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">test_interviewer.</span></span><span class="sig-name descname"><span class="pre">TestInterviewer</span></span><a class="headerlink" href="#test_interviewer.TestInterviewer" title="Permalink to this definition">¶</a></dt>
+<dd><p>TestInterviewer class is used for testing interviewer</p>
+<p><code class="docutils literal notranslate"><span class="pre">Methods</span></code></p>
+<dl class="simple">
+<dt>test_interview_process()</dt><dd><p>Checking interview_process</p>
+</dd>
+<dt>test_verdict()</dt><dd><p>Checking verdict</p>
+</dd>
+<dt>test_ask_question()</dt><dd><p>Checking ask_question</p>
+</dd>
+<dt>test_grade_answer_reaction()</dt><dd><p>Checking grade_answer_reaction</p>
+</dd>
+</dl>
+</dd></dl>
+
+<span class="target" id="module-test_question"></span><dl class="py class">
+<dt class="sig sig-object py" id="test_question.TestQuestion">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">test_question.</span></span><span class="sig-name descname"><span class="pre">TestQuestion</span></span><a class="headerlink" href="#test_question.TestQuestion" title="Permalink to this definition">¶</a></dt>
+<dd><p>TestAnswer class is used for testing answers</p>
+<p><code class="docutils literal notranslate"><span class="pre">Methods</span></code></p>
+<dl class="simple">
+<dt>test_print_valid_question()</dt><dd><p>Checking print_question on valid case</p>
+</dd>
+<dt>test_print_invalid_question()</dt><dd><p>Checking print_question on invalid case</p>
+</dd>
+<dt>test_check_ask_answer()</dt><dd><p>Checking ask_answer</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="test_question.VALID_STRING">
+<span class="sig-prename descclassname"><span class="pre">test_question.</span></span><span class="sig-name descname"><span class="pre">VALID_STRING</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&quot;\n1.</span> <span class="pre">Your</span> <span class="pre">little</span> <span class="pre">boy</span> <span class="pre">shows</span> <span class="pre">you</span> <span class="pre">his</span> <span class="pre">butterfly</span> <span class="pre">collection,</span> <span class="pre">plus</span> <span class="pre">the</span> <span class="pre">killing</span> <span class="pre">jar.</span> <span class="pre">What</span> <span class="pre">do</span> <span class="pre">you</span> <span class="pre">say?\n\t1)</span> <span class="pre">Oh,</span> <span class="pre">lovely!\n\t2)</span> <span class="pre">That's</span> <span class="pre">nice,</span> <span class="pre">but</span> <span class="pre">why</span> <span class="pre">don't</span> <span class="pre">you</span> <span class="pre">keep</span> <span class="pre">the</span> <span class="pre">killing</span> <span class="pre">jar</span> <span class="pre">for</span> <span class="pre">yourself?\n\t3)</span> <span class="pre">Nothing.</span> <span class="pre">I</span> <span class="pre">take</span> <span class="pre">my</span> <span class="pre">boy</span> <span class="pre">to</span> <span class="pre">the</span> <span class="pre">doctor\n&quot;</span></em><a class="headerlink" href="#test_question.VALID_STRING" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>TESTS FOR QUESTION MODULE</strong></p>
+</dd></dl>
+
+<span class="target" id="module-test_answer"></span><dl class="py class">
+<dt class="sig sig-object py" id="test_answer.TestAnswer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">test_answer.</span></span><span class="sig-name descname"><span class="pre">TestAnswer</span></span><a class="headerlink" href="#test_answer.TestAnswer" title="Permalink to this definition">¶</a></dt>
+<dd><p>TestAnswer class is used for testing answers</p>
+<p><code class="docutils literal notranslate"><span class="pre">Methods</span></code></p>
+<dl class="simple">
+<dt>test_read_invalid_int_input()</dt><dd><p>Checking invalid input</p>
+</dd>
+<dt>test_valid_int_input()</dt><dd><p>Checking valid int input</p>
+</dd>
+<dt>test_check_invalid_answer()</dt><dd><p>Checking invalid answer</p>
+</dd>
+<dt>test_check_valid_answer()</dt><dd><p>Checking valid answer</p>
+</dd>
+<dt>test_take_answer()</dt><dd><p>Checking tacke answer</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="test_answer.TestAnswerKeeper">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">test_answer.</span></span><span class="sig-name descname"><span class="pre">TestAnswerKeeper</span></span><a class="headerlink" href="#test_answer.TestAnswerKeeper" title="Permalink to this definition">¶</a></dt>
+<dd><p>TestAnswerKeeper class is used for testing answers keeper</p>
+<p><code class="docutils literal notranslate"><span class="pre">Methods</span></code></p>
+<dl class="simple">
+<dt>test_save_answer()</dt><dd><p>Checking save answer</p>
+</dd>
+</dl>
+</dd></dl>
+
+<span class="target" id="module-test_reaction"></span><dl class="py class">
+<dt class="sig sig-object py" id="test_reaction.TestReactions">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">test_reaction.</span></span><span class="sig-name descname"><span class="pre">TestReactions</span></span><a class="headerlink" href="#test_reaction.TestReactions" title="Permalink to this definition">¶</a></dt>
+<dd><p>TestReactions class is used for testing reactions</p>
+<p><code class="docutils literal notranslate"><span class="pre">Methods</span></code></p>
+<dl class="simple">
+<dt>test_read_invalid_int_input()</dt><dd><p>Checking read_input on invalid int</p>
+</dd>
+<dt>test_read_valid_int_input()</dt><dd><p>Checking read_input on valid int</p>
+</dd>
+<dt>test_check_invalid_grade()</dt><dd><p>Checking grade on invalid case</p>
+</dd>
+<dt>test_check_valid_grade()</dt><dd><p>Checking grade on valid case</p>
+</dd>
+<dt>test_grade_reaction()</dt><dd><p>Checking grade_reaction</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="test_reaction.TestReactionsCounter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">test_reaction.</span></span><span class="sig-name descname"><span class="pre">TestReactionsCounter</span></span><a class="headerlink" href="#test_reaction.TestReactionsCounter" title="Permalink to this definition">¶</a></dt>
+<dd><p>TestReactions class is used for testing reactions</p>
+<p><code class="docutils literal notranslate"><span class="pre">Methods</span></code></p>
+<dl class="simple">
+<dt>test_update_reaction()</dt><dd><p>Checking update_reaction</p>
+</dd>
+</dl>
+</dd></dl>
+
+<span class="target" id="module-test_reactions_detector"></span><dl class="py class">
+<dt class="sig sig-object py" id="test_reactions_detector.TestReactionsDetector">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">test_reactions_detector.</span></span><span class="sig-name descname"><span class="pre">TestReactionsDetector</span></span><a class="headerlink" href="#test_reactions_detector.TestReactionsDetector" title="Permalink to this definition">¶</a></dt>
+<dd><p>TestReactionsDetector class is used for testing ReactionsDetector</p>
+<p><code class="docutils literal notranslate"><span class="pre">Methods</span></code></p>
+<dl class="simple">
+<dt>test_is_human_valid_replicant()</dt><dd><p>Checking is_human on valid replicant case</p>
+</dd>
+<dt>test_is_human_valid_human()</dt><dd><p>Checking is_human on valid human case</p>
+</dd>
+<dt>test_is_human_invalid()</dt><dd><p>Checking is_human on invalid human case</p>
+</dd>
+</dl>
+</dd></dl>
+
+<span class="target" id="module-test_writer"></span><dl class="py class">
+<dt class="sig sig-object py" id="test_writer.TestWriter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">test_writer.</span></span><span class="sig-name descname"><span class="pre">TestWriter</span></span><a class="headerlink" href="#test_writer.TestWriter" title="Permalink to this definition">¶</a></dt>
+<dd><p>TestWriter class is used for testing writer</p>
+<p><code class="docutils literal notranslate"><span class="pre">Methods</span></code></p>
+<dl class="simple">
+<dt>test_write_to_file()</dt><dd><p>Checking write_to_file</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Voight-Kampff test</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="QUICKSTART.html"><strong>QUICKSTART</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="answer.html"><strong>Answer module</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="reader.html"><strong>Reader module</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="writer.html"><strong>Writer module</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="question.html"><strong>Question module</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="reaction.html"><strong>Reaction module</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="reactiondetector.html"><strong>ReactionDetector module</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="interviewer.html"><strong>Interviewer module</strong></a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><strong>Tests description</strong></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#conftest.MockedX"><code class="docutils literal notranslate"><span class="pre">MockedX</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#conftest.PathsAnswers"><code class="docutils literal notranslate"><span class="pre">PathsAnswers</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#conftest.PathsQuestions"><code class="docutils literal notranslate"><span class="pre">PathsQuestions</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#test_reader.TestReader"><code class="docutils literal notranslate"><span class="pre">TestReader</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#test_interviewer.REPLICANT_STR"><code class="docutils literal notranslate"><span class="pre">REPLICANT_STR</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#test_interviewer.TestInterviewer"><code class="docutils literal notranslate"><span class="pre">TestInterviewer</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#test_question.TestQuestion"><code class="docutils literal notranslate"><span class="pre">TestQuestion</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#test_question.VALID_STRING"><code class="docutils literal notranslate"><span class="pre">VALID_STRING</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#test_answer.TestAnswer"><code class="docutils literal notranslate"><span class="pre">TestAnswer</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#test_answer.TestAnswerKeeper"><code class="docutils literal notranslate"><span class="pre">TestAnswerKeeper</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#test_reaction.TestReactions"><code class="docutils literal notranslate"><span class="pre">TestReactions</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#test_reaction.TestReactionsCounter"><code class="docutils literal notranslate"><span class="pre">TestReactionsCounter</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#test_reactions_detector.TestReactionsDetector"><code class="docutils literal notranslate"><span class="pre">TestReactionsDetector</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#test_writer.TestWriter"><code class="docutils literal notranslate"><span class="pre">TestWriter</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="interviewer.html" title="previous chapter"><strong>Interviewer module</strong></a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2023, Msalena.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 6.1.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/testcomments.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

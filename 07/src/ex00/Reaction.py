@@ -25,26 +25,26 @@ class Reaction:
 	"""Reaction parent class is used for representing a reactions for 
 	children
 
-	``Attributes``
+		``Attributes``
 
-	:param int grade: drade of reaction
-	:param enum evaluated: enum of Reactions
-	:param bool is_valid: flag for checking valid grade
-	:param class ReactionException: custom exception for Reaction class
+		:param int grade: drade of reaction
+		:param enum evaluated: enum of Reactions
+		:param bool is_valid: flag for checking valid grade
+		:param class ReactionException: custom exception for Reaction class
 
-	``Methods``
+		``Methods``
 
-	grade_reaction()
-		Grades respondent's reaction
+		grade_reaction()
+			Grades respondent's reaction
 
-	read_input()
-		Reads gave reaction
+		read_input()
+			Reads gave reaction
 
-	check_grade()
-		Checks that gave reaction is valid
+		check_grade()
+			Checks that gave reaction is valid
 
-	check_conditions()
-		Check special conditions for concret reaction
+		check_conditions()
+			Check special conditions for concret reaction
 
 	
 	"""

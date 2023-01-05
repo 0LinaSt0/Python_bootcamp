@@ -48,5 +48,17 @@ Create html file with documentation
 $ sphinx-build -b html docs/source/ docs/build/html
 ```
 
-Start server and look at documetation [in folder "ex02/"] in way: http://localhost:8000/docs/build/html/index.html
+Make html files with personal comments [in folder "ex02/docs"]
+```shell
+$ make html
+```
+
+###### 1. Start serser in terminal [in folder "ex02/docs"]:
+```shell
+$ python3 -m http.server
+```
+
+###### 2. Check documentation in way: 
+http://localhost:8000/docs/build/html/index.html
+
 

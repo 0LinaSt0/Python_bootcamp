@@ -15,6 +15,16 @@ from Question import Question
 HUMAN_STR = "\n\t~~~~~~~ Verdict ~~~~~~~\nYOU'R A HUMAN. YOU CAN BE FREE\n\n"
 REPLICANT_STR = "\n\t~~~~~~~ Verdict ~~~~~~~\n!DANGER! REPLICANT WAS DETECTED\n\n"
 
+"""
+**TESTS FOR INTERVIEWER MODULE**
+
+	``Finctions``
+
+	check_verdict()
+		Check verdict
+
+"""
+
 
 def check_verdict(capsys, obj, reaction, expected_result):
 	obj.grades_reactions = reaction
@@ -24,6 +34,23 @@ def check_verdict(capsys, obj, reaction, expected_result):
 
 
 class TestInterviewer:
+	"""TestInterviewer class is used for testing interviewer
+
+		``Methods``
+
+		test_interview_process()
+			Checking interview_process
+
+		test_verdict()
+			Checking verdict
+
+		test_ask_question()
+			Checking ask_question
+
+		test_grade_answer_reaction()
+			Checking grade_answer_reaction
+	"""
+
 	@pytest.fixture(autouse=True)
 	def _reactions_counters(self):
 		self.r_counter_human = ReactionsCounter()

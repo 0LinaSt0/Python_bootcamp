@@ -14,6 +14,23 @@ sys.path.insert(1, "../../ex00")
 from Reaction import Reaction, Reactions
 
 
+"""
+**TESTS FOR INTERVIEWER MODULE**
+
+	``Finctions``
+
+	check_input()
+		Check input
+
+	check_grade()
+		Check grade
+
+	is_incorrect()
+		Check on correct
+
+"""
+
+
 def check_input(reactions, argum, expected_result, err):
 	try:
 		for reaction in reactions:
@@ -41,6 +58,26 @@ def is_incorrect(reaction, capsys, err):
 
 
 class TestReactions:
+	"""TestReactions class is used for testing reactions
+
+		``Methods``
+
+		test_read_invalid_int_input()
+			Checking read_input on invalid int
+
+		test_read_valid_int_input()
+			Checking read_input on valid int
+
+		test_check_invalid_grade()
+			Checking grade on invalid case
+
+		test_check_valid_grade()
+			Checking grade on valid case
+
+		test_grade_reaction()
+			Checking grade_reaction
+	"""
+
 	@pytest.fixture(autouse=True)
 	def _reactions(self, respiration_obj, heartRate_obj,
 					blushingLevel_obj, pupillaryDilation_obj):
@@ -104,6 +141,14 @@ class TestReactions:
 
 
 class TestReactionsCounter:
+	"""TestReactions class is used for testing reactions
+
+		``Methods``
+
+		test_update_reaction()
+			Checking update_reaction
+	"""
+
 	def test_update_reaction(self, reactions_counter_obj):
 		reactions_counter_obj.update_reaction(
 			Reactions.RESPIRATION, 3

@@ -16,6 +16,31 @@ from main import (
 	programm_process
 )
 
+"""
+**TESTS FOR MAIN MODULE**
+
+	``Finctions``
+		
+	change_take_questions()
+		Changes take_questions func in main module
+		
+	change_write_answers()
+		Changes write_answers func in main module
+		
+	test_take_questions_valid()
+		Check take_questions on valid case
+		
+	test_take_questions_invalid()
+		Check take_questions on invalid case
+		
+	test_write_answers()
+		Check write_answers
+		
+	test_programm_process()
+		Check programm_process
+
+"""
+
 
 def change_take_questions(p):
 	pass

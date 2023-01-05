@@ -14,6 +14,7 @@
     <script src="_static/sphinx_highlight.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="ReactionDetector module" href="reactiondetector.html" />
     <link rel="prev" title="Question module" href="question.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -82,15 +83,20 @@ a pupillary dilation reaction</p>
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Reaction.</span></span><span class="sig-name descname"><span class="pre">Reaction</span></span><a class="headerlink" href="#Reaction.Reaction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reaction parent class is used for representing a reactions for 
 children</p>
-<p><code class="docutils literal notranslate"><span class="pre">Attributes</span></code></p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">Attributes</span></code></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>grade</strong> (<em>int</em>) -- drade of reaction</p></li>
-<li><p><strong>evaluated</strong> (<em>enum</em>) -- enum of Reactions</p></li>
-<li><p><strong>is_valid</strong> (<em>bool</em>) -- flag for checking valid grade</p></li>
-<li><p><strong>ReactionException</strong> (<em>class</em>) -- custom exception for Reaction class</p></li>
-</ul>
+<dt class="field-odd">param int grade<span class="colon">:</span></dt>
+<dd class="field-odd"><p>drade of reaction</p>
+</dd>
+<dt class="field-even">param enum evaluated<span class="colon">:</span></dt>
+<dd class="field-even"><p>enum of Reactions</p>
+</dd>
+<dt class="field-odd">param bool is_valid<span class="colon">:</span></dt>
+<dd class="field-odd"><p>flag for checking valid grade</p>
+</dd>
+<dt class="field-even">param class ReactionException<span class="colon">:</span></dt>
+<dd class="field-even"><p>custom exception for Reaction class</p>
 </dd>
 </dl>
 <p><code class="docutils literal notranslate"><span class="pre">Methods</span></code></p>
@@ -104,6 +110,7 @@ children</p>
 <dt>check_conditions()</dt><dd><p>Check special conditions for concret reaction</p>
 </dd>
 </dl>
+</div></blockquote>
 <dl class="py exception">
 <dt class="sig sig-object py" id="Reaction.Reaction.ReactionException">
 <em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ReactionException</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Reaction.Reaction.ReactionException" title="Permalink to this definition">¶</a></dt>
@@ -224,6 +231,7 @@ reaction</p>
 <h3>Navigation</h3>
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="QUICKSTART.html"><strong>QUICKSTART</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="answer.html"><strong>Answer module</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="reader.html"><strong>Reader module</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="writer.html"><strong>Writer module</strong></a></li>
@@ -238,6 +246,9 @@ reaction</p>
 <li class="toctree-l2"><a class="reference internal" href="#Reaction.Respiration"><code class="docutils literal notranslate"><span class="pre">Respiration</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="reactiondetector.html"><strong>ReactionDetector module</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="interviewer.html"><strong>Interviewer module</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="testcomments.html"><strong>Tests description</strong></a></li>
 </ul>
 
 <div class="relations">
@@ -245,6 +256,7 @@ reaction</p>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
       <li>Previous: <a href="question.html" title="previous chapter"><strong>Question module</strong></a></li>
+      <li>Next: <a href="reactiondetector.html" title="next chapter"><strong>ReactionDetector module</strong></a></li>
   </ul></li>
 </ul>
 </div>

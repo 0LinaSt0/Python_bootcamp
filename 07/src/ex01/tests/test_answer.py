@@ -15,6 +15,20 @@ sys.path.insert(1, "../../ex00")
 from Answer import Answer
 
 
+"""
+**TESTS FOR ANSWER MODULE**
+
+	``Finctions``
+		
+	check_input()
+		Check inputs
+		
+	check_answer()
+		Check answers
+
+"""
+
+
 
 def check_input(obj, argum, expected_result, err):
 	try:
@@ -35,6 +49,26 @@ def check_answer(obj, num_argum, expected_result, err):
 
 
 class TestAnswer:
+	"""TestAnswer class is used for testing answers
+
+		``Methods``
+
+		test_read_invalid_int_input()
+			Checking invalid input
+
+		test_valid_int_input()
+			Checking valid int input
+
+		test_check_invalid_answer()
+			Checking invalid answer
+
+		test_check_valid_answer()
+			Checking valid answer
+
+		test_take_answer()
+			Checking tacke answer
+	"""
+
 	def test_read_invalid_int_input(self, answer_obj):
 		check_input(answer_obj, "dvzdfgv", False, INVALID_INPUT_ERROR)
 		check_input(answer_obj, "-5f6", False, INVALID_INPUT_ERROR)
@@ -71,6 +105,14 @@ class TestAnswer:
 
 
 class TestAnswerKeeper:
+	"""TestAnswerKeeper class is used for testing answers keeper
+
+	``Methods``
+
+	test_save_answer()
+		Checking save answer
+	"""
+
 	def test_save_answer(self, answer_keeper_obj, answer_obj):
 		answer_keeper_obj.save_answer(answer_obj.question, 2)
 		for key, value in answer_keeper_obj.answers.items():

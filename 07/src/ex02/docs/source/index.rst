@@ -19,6 +19,7 @@ replicant.
    :maxdepth: 2
    :caption: Contents:
 
+   QUICKSTART
    answer
    reader
    writer
@@ -26,6 +27,7 @@ replicant.
    reaction
    reactiondetector
    interviewer
+   testcomments
 
 
 

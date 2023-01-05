@@ -9,6 +9,18 @@ sys.path.insert(1, "../../ex00")
 from Reader import Reader
 
 
+"""
+**TESTS FOR READER MODULE**
+
+	``Finctions``
+
+	check_read_file()
+		Check read_file
+
+"""
+
+
+
 def check_read_file(obj, path, expected_result, err):
 	try:
 		q = obj.read_file(path)
@@ -18,6 +30,14 @@ def check_read_file(obj, path, expected_result, err):
 
 
 class TestReader:
+	"""TestReader class is used for testing reader
+
+		``Methods``
+
+		test_read_file()
+			Checking read_file
+	"""
+
 	def test_read_file(self, reader_obj, questions_dict_obj):
 		check_read_file(
 			reader_obj, 
