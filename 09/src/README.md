@@ -26,15 +26,15 @@ Building a Python C Extension Module:
 
 2. [In documentation](https://python.readthedocs.io/en/v2.7.2/extending/extending.html)
 
-Command for rebuilding library and starting TEST.py:
+Command for rebuilding library:
 ```shell
-$ ../../../../rm.sh; rm -rf build/ Calculator.egg-info/; CC=gcc python3 setup.py install; python3 TEST.py
+$ ../../../../rm.sh; rm -rf build/ Calculator.egg-info/; CC=gcc python3 setup.py install
 ```
 
 ##### Execution:
-###### 1. []:
+###### 1. Create module calculator [in folder ex00/]:
 ```shell
-$ 
+$ CC=gcc python3 setup.py install
 ```
 
 #### EX01
@@ -51,15 +51,15 @@ $
 Building a Python C Extension Module with Cython:
 1. [In documentation](https://cython.readthedocs.io/en/latest/src/tutorial/cython_tutorial.html)
 
-Command for rebuilding library and starting TEST.py:
+Command for rebuilding library:
 ```shell
-rm -rf matrix.cpython-310-darwin.so, multiply.c build; python3 setup.py build_ext --inplace; python3 TEST.py
+rm -rf matrix.cpython-310-darwin.so, multiply.c; python3 setup.py build_ext --inplace
 ```
 
 ##### Execution:
-###### 1. []:
+###### 1. Create module matrix [in folder ex02/]:
 ```shell
-$ 
+$ python3 setup.py build_ext --inplace
 ```
 
 
