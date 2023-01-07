@@ -19,11 +19,8 @@ if __name__ == "__main__":
 	print("({} / {}): \n{}\n\n".format(c, b, calculator.div(c, b)))
 	print("({} / {}): \n{}\n\n".format(a, d, calculator.div(a, d)))
 
-
-	
 	# FLOATS (doesn't work)
-	"""
+
 	x = 3.9
 	y = 4.7
 	print("({} + {}): \n{}\n\n".format(x, y, calculator.add(x, y)))
-	"""
