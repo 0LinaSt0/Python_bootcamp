@@ -1,7 +1,7 @@
 
 def aptModuleParameters(installable_name):
 	param_dict = {
-		"name": installable_name, #installable name
+		"name": installable_name, # installable name
 		"state": "latest" # installable vertion
 	}
 	return param_dict

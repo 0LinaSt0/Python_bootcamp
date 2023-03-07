@@ -18,7 +18,7 @@ $ pip3 install -r requirements.txt
 ---
 ## EXERCISES
 
-#### EX00 
+#### EX00
 ##### Information:
 
 Building a Python C Extension Module:
@@ -35,15 +35,6 @@ $ ../../../../rm.sh; rm -rf build/ Calculator.egg-info/; CC=gcc python3 setup.py
 ###### 1. Create module calculator [in folder ex00/]:
 ```shell
 $ CC=gcc python3 setup.py install
-```
-
-#### EX01
-##### Information:
-
-##### Execution:
-###### 1. []:
-```shell
-$ 
 ```
 
 #### EX02

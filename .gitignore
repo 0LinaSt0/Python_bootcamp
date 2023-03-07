@@ -1,5 +1,5 @@
-__pycache__
-.pytest_cash
-dump.rdb
-answers.json
-.coverage
+**/__pycache__
+**/.pytest_cash
+**/dump.rdb
+**/answers.json
+**/.coverage

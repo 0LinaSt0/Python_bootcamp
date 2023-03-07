@@ -7,7 +7,7 @@ RESPONSE_INFO = "credentials": ...
 # for creating server for testing
 from wsgiref.simple_server import make_server
 # for wsgi implementation
-from cgi import parse_qs, escape
+from cgi import parse_qs
 
 FOUND_STATUS = "200 STATUS"
 UNKNOWN_STATUS = "404 STATUS"
@@ -52,7 +52,9 @@ def my_WSGI(environ, start_response):
 
 if "__main__" == __name__:
 	http = make_server("127.0.0.1", 8888, my_WSGI)
+
 	# server will quit after single request
-	#http.handle_request()
+	# http.handle_request()
+
 	# server will be running forever (ctrl+C can interrupt it)
 	http.serve_forever()

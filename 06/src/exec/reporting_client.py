@@ -1,6 +1,7 @@
 #! /usr/bin/env python3
 
 # ~$ ./reporting_client.py 17 45 40.0409 -29 00 28.118
+
 import sys
 from json import loads, dumps
 sys.path.insert(1, "./general_srcs/")
