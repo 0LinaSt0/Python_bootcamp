@@ -3,13 +3,13 @@
 ### Description
 1. [DAY_00](https://github.com/0LinaSt0/Python_bootcamp/tree/main/00):
 	Basic Python functional
-	> import, "`__main__`", sys, functions, enum
+	> import, "__main\__", sys, functions, enum
 2. [DAY_01](https://github.com/0LinaSt0/Python_bootcamp/tree/main/01):
 	Basic Python functional and datatypes
 	> dicts, [MappingProxyType](https://adamj.eu/tech/2022/01/05/how-to-make-immutable-dict-in-python/), lists, tuples, [frozensets](https://docs.python.org/3/library/stdtypes.html#frozenset), [decorators](https://realpython.com/primer-on-python-decorators/)
 3. [DAY_02](https://github.com/0LinaSt0/Python_bootcamp/tree/main/02):
 	Inheritance, magick methods and the Game Theory implementation
-	> [super()](https://realpython.com/python-super/), [`__magic_methods__`](https://medium.com/thedevproject/new-vs-init-in-python-a-most-known-resource-7beb538dc3b), Counter()
+	> [super()](https://realpython.com/python-super/), ['__magic_methods\__'](https://medium.com/thedevproject/new-vs-init-in-python-a-most-known-resource-7beb538dc3b), Counter()
 4. [DAY_03](https://github.com/0LinaSt0/Python_bootcamp/tree/main/03):
 	Read, pars and write to html files, the Publish/Subscribe messaging paradigm, the management of remote systems and controls their desired state
 	> [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/), argparse, [Redis](https://koalatea.io/python-redis-pubsub/), [Ansible](https://docs.ansible.com/ansible/latest/getting_started/index.html), yaml
