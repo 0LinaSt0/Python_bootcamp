@@ -18,7 +18,7 @@
 	> [generators and yield](https://realpython.com/introduction-to-python-generators/), [dynamic calsses](https://www.geeksforgeeks.org/create-classes-dynamically-in-python/), chain, zip, filter
 6. [DAY_05](https://github.com/0LinaSt0/Python_bootcamp/tree/main/05):
 	Implementation of a WSGI server with an HTTP wrapper, a simple WSGI+HTTP client-server application for managing sound files and decision of a variation of a parallel programming problem as "Dining Philosophers"
-	> [wsqi](https://wsgi.tutorial.codepoint.net/intro), cgi, requests, [logging](https://realpython.com/python-logging/), threading, [concurrency](https://realpython.com/python-concurrency/)
+	> [wsgi](https://wsgi.tutorial.codepoint.net/intro), cgi, requests, [logging](https://realpython.com/python-logging/), threading, [concurrency](https://realpython.com/python-concurrency/)
 7. [DAY_06](https://github.com/0LinaSt0/Python_bootcamp/tree/main/06):
 	Implementation of a client-server communication with a response-streaming endpoint, the stream validate
 	> [protobuf](https://protobuf.dev/getting-started/pythontutorial/), [gRPC](https://grpc.io/docs/languages/python/basics/), futures, json, [pydantic](https://docs.pydantic.dev/usage/schema/)
